@@ -30,7 +30,9 @@ AnchorArray[4] = /* Enter Path here */;
 
 //	<- Edit here
 
-var Interval_value = 5000;		//	<- Edit Interval Here (Unit: ms)
+var Interval_value = 5000;		            //	<- Edit Interval Here (Unit: ms)
+
+var Return_Animation_Duration = 1000;       //  <- Edit Return Animation Duration here (Unit: ms)
 
 var _Banner_Repeat = BannerArray.length;
 
@@ -100,15 +102,15 @@ var Cur_Slide = 1;
 
 
 $(document).ready(function(){
-	$("#Inner_Anchor_0 progress").animate({value:100},Interval_value,"linear");
-	$("#Inner_Anchor_0 progress").animate({value:0},1000);
+    $("#Inner_Anchor_0 progress").animate({ value: 100 }, Interval_value, "linear");
+    $("#Inner_Anchor_0 progress").animate({ value: 0 }, Return_Animation_Duration);
 	setInterval(TurnTo_next,Interval_value);
 });
 
 function TurnTo(Slide_Number){
 	Cur_Slide = Slide_Number;
-	$("#Inner_Anchor_"+(Cur_Slide-1)+" progress").animate({value:100},Interval_value,"linear");
-	$("#Inner_Anchor_"+(Cur_Slide-1)+" progress").animate({value:0},1000);
+    $("#Inner_Anchor_" + (Cur_Slide - 1) + " progress").animate({ value: 100 }, Interval_value, "linear");
+    $("#Inner_Anchor_" + (Cur_Slide - 1) + " progress").animate({ value: 0 }, Return_Animation_Duration);
 	for(var i = 0; i < _Banner_Repeat; i++)
 		if(i >= Slide_Number - 1)
 			$("#Inner_Anchor_"+i+" > progress").attr("value",0);
