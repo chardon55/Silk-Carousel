@@ -4,8 +4,8 @@
 /*	CAUTION: The script needs jQuery js-file to work in order	*/
 
 
-var _width = 1250;			//  <- Edit width here
-var _height = 500;			//  <- Edit height here
+var _width = 1250;			//  <- Edit width here	(Unit: px)
+var _height = 500;			//  <- Edit height here	(Unit: px)
 
 
 var BannerArray = new Array;
