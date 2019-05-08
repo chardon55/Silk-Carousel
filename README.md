@@ -9,3 +9,5 @@ This repository contains script for making an HTML banner that can do slideshow.
   <li>To activate the script, you just need a div tag whose id is "banner"</li>
   <li>You can change how many elements of arrays are, because the script will adjust the banner depending on it</li>
 </ul>
+
+<i><b>The new Slideshow js-File is under construction. Thanks for your patience.</b></i>
