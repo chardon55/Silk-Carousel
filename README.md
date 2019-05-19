@@ -14,6 +14,7 @@ This repository contains script for making an HTML banner that can do slideshow.
 </ul>
 
 <text>
+<code>
 <script type="text/javascript">
 $(function () {
 	//	The number of the element in the array can be changed
@@ -38,4 +39,5 @@ $(function () {
 	Slide_Run('#Slide');
 });
 </script>
+</code>
 </text>
