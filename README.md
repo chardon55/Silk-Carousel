@@ -14,28 +14,28 @@ This repository contains script for making an HTML banner that can do slideshow.
 </ul>
 
 <code>
-<script type="text/javascript">
-$(function () {
-	//	The number of the element in the array can be changed
+	<script type="text/javascript">
+	$(function () {
+		//	The number of the element in the array can be changed
 			
-	_width = 1000;				// <- Custom width	default:1250
-	_height = 480;				// <- Custom height default:500
+		_width = 1000;				// <- Custom width	default:1250
+		_height = 480;				// <- Custom height default:500
 
-	Interval_value = 5000;		//	<- Interval		default: 5000ms
+		Interval_value = 5000;		//	<- Interval		default: 5000ms
 
-	BannerArray[0] = "#";
-	BannerArray[1] = "#";
-	BannerArray[2] = "#";
-	BannerArray[3] = "#";
-	BannerArray[4] = "#";
+		BannerArray[0] = "#";
+		BannerArray[1] = "#";
+		BannerArray[2] = "#";
+		BannerArray[3] = "#";
+		BannerArray[4] = "#";
 
-	AnchorArray[0] = "#";
-	AnchorArray[1] = "#";
-	AnchorArray[2] = "#";
-	AnchorArray[3] = "#";
-	AnchorArray[4] = "#";
+		AnchorArray[0] = "#";
+		AnchorArray[1] = "#";
+		AnchorArray[2] = "#";
+		AnchorArray[3] = "#";
+		AnchorArray[4] = "#";
 
-	Slide_Run('#Slide');
-});
-</script>
+		Slide_Run('#Slide');
+	});
+	</script>
 </code>
