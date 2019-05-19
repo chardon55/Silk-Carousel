@@ -15,7 +15,6 @@ This repository contains script for making an HTML banner that can do slideshow.
 
 <code>
 
-$(function () {
 	//	The number of the element in the array can be changed
 			
 	_width = 1000;				// <- Custom width	default:1250
@@ -36,6 +35,5 @@ $(function () {
 	AnchorArray[4] = "#";
 
 	Slide_Run('#Slide');
-});
 
 </code>
