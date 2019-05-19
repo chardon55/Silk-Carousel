@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Demo Site</title>
+
+	<link type="text/css" rel="stylesheet" href="../BannerStyle.css" />
+
+	<script src="jquery-3.4.1.min.js"></script><!--	jQuery	-->
+	<script src="../Banner_Script.js"></script>
+
+</head>
+<body>
+	<label>Demo Site</label>
+	<h2 style="font-family: Calibri;">The Landscape of Qingdao</h2>
+	<div id="Slide"></div>
+	<script type="text/javascript">
+
+		$(function () {
+			//	The number of the element in the array can be changed
+			
+			_width = 1000;
+			_height = 480;
+
+			BannerArray[0] = "Demo_imgs/a191fb_f9d0d32934a341138b3f439df2e17261.jpg_srz_1532_1021_85_22_0.50_1.20_0.jfif.jpg";
+			BannerArray[1] = "Demo_imgs/b083fe955a7417b503fd01.jpg";
+			BannerArray[2] = "Demo_imgs/InternChina-Qingdao-coast-at-night.jpg";
+			BannerArray[3] = "Demo_imgs/qingdao03.jpg";
+			BannerArray[4] = "Demo_imgs/Qingdao-China.jpg";
+
+			AnchorArray[0] = "#";
+			AnchorArray[1] = "#";
+			AnchorArray[2] = "#";
+			AnchorArray[3] = "#";
+			AnchorArray[4] = "#";
+
+			Slide_Run('#Slide');
+		});
+
+	</script>
+</body>
+</html>
