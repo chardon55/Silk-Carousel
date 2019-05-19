@@ -10,7 +10,7 @@ This repository contains script for making an HTML banner that can do slideshow.
 <h2>Tips to use it:</h2>
 <ul>
   <li>Make sure your HTML file has imported jQuery, because the script needs it</li>
-  <li>You can change how many elements of arrays are, because the script will adjust the banner depending on it</li>
+  <li>You can change how many elements in the arrays are, because the script will adjust the banner depending on it</li>
   <li>The demo code about how to use it as follow.</li>
   <li>You can view the demo site to learn the example about how to use it.</li>
 </ul>
