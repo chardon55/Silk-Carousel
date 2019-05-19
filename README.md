@@ -9,8 +9,10 @@ This repository contains script for making an HTML banner that can do slideshow.
 <ul>
   <li>Make sure your HTML file has imported jQuery, because the script needs it</li>
   <li>You can change how many elements of arrays are, because the script will adjust the banner depending on it</li>
-  <li>This is the code to use it.
-	<code>
+  <li>The demo code about how to use it as follow.</li>
+  <li>You can view the demo to learn the example about how to use it.</li>
+</ul>
+<code>
 		<script type="text/javascript">
 
 		$(function () {
@@ -38,5 +40,3 @@ This repository contains script for making an HTML banner that can do slideshow.
 
 		</script>
 	</code>
-  </li>
-</ul>
