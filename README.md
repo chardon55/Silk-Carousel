@@ -35,5 +35,5 @@ This repository contains script for making an HTML banner that can do slideshow.
 	AnchorArray[3] = "#";
 	AnchorArray[4] = "#";
 
-	Slide_Run(/*Tag/ID/Class*/);
+	Slide_Run(/*	String of Tag/ID/Class	*/);
 </code>
