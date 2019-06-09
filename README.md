@@ -5,7 +5,7 @@ This repository contains script for making an HTML banner that can do slideshow.
 <b>Thanks for your support!</b><br>
 <b><i>The version 2.0 will come soon.</i></b>
 
-<i>The script now can only work properly on Google Chrome. I'm trying to improve its compatibility. I'm sorry for it.</i>
+<i>There are many problems in the script. I'm trying to improve its compatibility. I'm sorry for it.</i>
 
 <h2>Tips to use it:</h2>
 <ul>
