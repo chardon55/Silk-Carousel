@@ -5,6 +5,8 @@ This repository contains script for making an HTML banner that can do slideshow.
 <p>The code at 2.0 beta is completely different with previous version.</p>
 <p>Thanks for your support!</p>
 
+<i>The old version has updated to 1.2.0, whose code and function structure has been changed.</i>
+
 <hr>
 <h2>Tips to use it:</h2>
 <ul>
