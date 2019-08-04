@@ -3,7 +3,7 @@ This repository contains script for making an HTML banner that can do slideshow.
 
 <p>The Slideshow 2.0 beta version has finally come!</p>
 <p>The code at 2.0 beta is completely different with previous version.</p>
-<p>Lambda Express is used in new version's code to make the code looking more natrual.</p>
+<p>Lambda Express is used in new version's code to make it more natrual.</p>
 <p>Thanks for your support!</p>
 
 <i>The old version has updated to 1.2.0, whose code and function structure has been changed.</i>
