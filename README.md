@@ -25,10 +25,10 @@ This repository contains script for making an HTML banner that can do slideshow.
 		"Demo_imgs/b083fe955a7417b503fd01.jpg",
 		"Demo_imgs/qingdao03.jpg"
 	], [	//LINKS
-			"#",
-			"#",
-			"#",
-			"#",
-			"#"
-		]);
+		"#",
+		"#",
+		"#",
+		"#",
+		"#"
+	]);
 </code>
