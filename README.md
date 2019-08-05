@@ -1,6 +1,6 @@
 # Slideshow_Banner
-This repository contains script for making an HTML banner that can do slideshow.
-
+<h4>This repository contains script for making an HTML banner that can do slideshow.</h4>
+<br>
 <p>The Slideshow 2.0 beta 2 version has finally come!</p>
 <p>The source code at 2.0 beta 2 is completely different with previous version (v1.1).</p>
 <br>
