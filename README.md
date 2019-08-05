@@ -8,8 +8,6 @@
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
 <br>
 <p>The update is coming. Thanks for your support!</p>
-<br>
-<i>ps: Source of the old version has been withdrawn.</i>
 
 <hr>
 <h2>Tips to use it:</h2>
