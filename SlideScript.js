@@ -1,5 +1,5 @@
 /*							Slideshow						*
- *	Edition: 2.0(beta)										*
+ *	Edition: 2.0 beta-2										*
  *	Created by: dy55										*
  *	Created date: Aug. 3, 2019								*/
 
@@ -13,7 +13,8 @@ var curWidth;
 var curHeight;
 
 var curSlide = 1;
-var slideInterval = 3000;
+var pauseTime = 500;
+var slideInterval = 5000 + pauseTime;
 
 var imageArray = new Array();
 var anchorArray = new Array();
@@ -21,13 +22,16 @@ var anchorArray = new Array();
 var InitialDisplay = "Initializing...";
 var NoImageDisplay = "Printing...";
 
+//var webkitPara = 70;
+//var thisBrowserPara = window.outerHeight - window.innerHeight;
+
 var internalEventReference;
 $(() => {
 
 });
 
 
-function SlideRun(target, width, height, imageSrcs, anchorHrefs) {
+function SlideRun(target, width = defaultWidth, height = defaultHeight, imageSrcs, anchorHrefs) {
 
 	imageArray = imageSrcs;
 	anchorArray = anchorHrefs;
@@ -59,7 +63,7 @@ function FormatSet() {
 		"width": curWidth,
 		"background-position": "center",
 		"background-size": "cover",
-		"transition": "background 0.5s",
+		"transition": "background " + pauseTime + "ms",
 		"cursor": "pointer",
 		"overflow": "hidden",
 		"outline": "1.5px black solid"
@@ -76,7 +80,9 @@ function Init(imageArray = new Array(), anchorArray = new Array()) {
 	internalEventReference = setInterval(() => {
 		TurnNext(imageArray.length);
 	}, slideInterval);
-	barReset(curSlide);
+	setTimeout(() => {
+		barReset(curSlide);
+	}, pauseTime);
 }
 
 function ProgressBarSetPut(barNumber) {
@@ -84,7 +90,7 @@ function ProgressBarSetPut(barNumber) {
 	for (var i = 0; i < barNumber; i++) {
 		$(slideTarget + " > .barSet").append("<div class='" + barClassName + " bar" + i + "' role='progressbar'></div>");
 			
-		$(slideTarget + " > .barSet > bar" + i).click(() => {
+		$(slideTarget + " > .barSet > .bar" + i).click(() => {
 			clearInterval(internalEventReference);
 			TurnTo(i + 1);
 		});
@@ -117,11 +123,17 @@ function SliceToUnit(str) {
 
 function TurnTo(slideNum) {
 	curSlide = slideNum;
-	$(slideTarget).css("background-image", "url(" + imageArray[slideNum - 1] + ")");
-	$(slideTarget).click(() => {
-		window.location.href = anchorArray[slideNum - 1];
+
+	$(() => {
+		$(slideTarget).css("background-image", "url(" + imageArray[slideNum - 1] + ")");
+		$(slideTarget).click(() => {
+			window.location.href = anchorArray[slideNum - 1];
+		});
+
+		setTimeout(() => {
+			barReset(slideNum);
+		}, pauseTime);
 	});
-	barReset(slideNum);
 }
 
 function TurnNext(total) {
@@ -152,9 +164,11 @@ $(() => {
 
 function barBuild() {
 	$("." + barClassName).html("<div></div>");
+
 	$("." + barClassName).css({
-		"background-color": "#ffffff4e"
+		"background-color": "rgba(255,255,255,0.4)"
 	});
+
 	$("." + barClassName + " > div").css({
 		"background-color": "#ffffff",
 		"position": "relative",
@@ -167,14 +181,53 @@ function barBuild() {
 
 ///////////////////////////////////////
 
+var firstTime = true;
+
 function barReset(actNum) {
-	$(slideTarget + " ." + barClassName + " > div").css({
-		"transition": "none",
-		"width": "0"
+
+	$(() => {
+
+		$(slideTarget + " ." + barClassName + " > div").css({
+			"transition": "none",
+			"width": "0"
+		});
+
+		$(slideTarget + " .bar" + (actNum - 1) + " > div").css({
+			"transition": "all " + (slideInterval - pauseTime) + "ms linear"
+		});
+
+		if (firstTime) {
+			if (!isEdge()) {
+				////Transition Effect Adjustment Buffer
+				var offsetTime = 0;
+				while ($(slideTarget + " .bar" + (actNum - 1) + " > div").css("transition") != "all " + (slideInterval - offsetTime) + "ms linear"
+					&&
+					offsetTime < slideInterval) {
+					setTimeout(() => {
+
+						$(slideTarget + " .bar" + (actNum - 1) + " > div").css({
+							"transition": "all " + (slideInterval - offsetTime - pauseTime) + "ms linear"
+						});
+
+					}, offsetTime += 20)
+				}
+				delete offsetTime;
+				////
+			}
+			else {
+				
+			}
+			firstTime = false;
+		}
+
+		$(slideTarget + " .bar" + (actNum - 1) + " > div").css({
+			"width": "100%"
+		});
+
 	});
 
-	$(slideTarget + " ." + barClassName)[actNum - 1].css({
-		"transition": "width " + slideInterval + "ms linear",
-		"width": "100%"
-	});
+}
+
+function isEdge() {
+	return navigator.userAgent.includes("Edge") || navigator.userAgent.includes("Chrome / 70.0.3538.102");
 }
