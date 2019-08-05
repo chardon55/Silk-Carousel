@@ -92,7 +92,7 @@ function ProgressBarSetPut(barNumber) {
 			
 		$(slideTarget + " > .barSet > .bar" + i).click(() => {
 			clearInterval(internalEventReference);
-			TurnTo(i + 1);
+			//TurnTo(i + 1);
 		});
 	}
 
