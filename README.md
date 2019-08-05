@@ -2,7 +2,7 @@
 <h4>This repository contains script for making an HTML banner that can do slideshow.</h4>
 <br>
 <p>The Slideshow 2.0 beta 2 version has finally come!</p>
-<p>The source code at 2.0 beta 2 is completely different with the previous version (v1.1).</p>
+<p>The source code at 2.0 beta 2 is completely different with the previous version.</p>
 <br>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natrual.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
