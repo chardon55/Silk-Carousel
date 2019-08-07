@@ -1,4 +1,4 @@
-/*							Slideshow						*
+/*							Carousel						*
  *	Version: 2.0 beta-4										*
  *	Created by: dy55										*
  *	Created date: Aug. 3, 2019								*/
@@ -13,6 +13,7 @@ var slideInterval = 5000 + pauseTime;
 
 var InitialDisplay = "Initializing...";
 var NoImageDisplay = "Printing...";
+var learnMore = "Learn more >"
 
 //var webkitPara = 70;
 //var thisBrowserPara = window.outerHeight - window.innerHeight;
@@ -82,7 +83,7 @@ function Init(slideInfo) {
 		barReset(slideInfo);
 	}, pauseTime);
 
-	$(slideInfo.slideTarget).prepend("<a class='slideAnchor'>Learn more ></a>");
+	$(slideInfo.slideTarget).prepend("<a class='slideAnchor'>" + learnMore + "</a>");
 
 	var anchorColor = "black"
 
@@ -264,8 +265,8 @@ function isEdge() {
 }
 
 
-var btnLeftId = "slideshowButtonLeft";
-var btnRightId = "slideshowButtonRight";
+var btnLeftId = "CarouselButtonLeft";
+var btnRightId = "CarouselButtonRight";
 
 function buttonsBuild(slideInfo) {
 	$(slideInfo.slideTarget).prepend("<a class='" + buttonClassName + "' id='" + btnLeftId + "'><</a><a class='" + buttonClassName + "' id='" + btnRightId + "'>></a>");
