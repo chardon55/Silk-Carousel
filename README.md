@@ -1,4 +1,4 @@
-# Slideshow_Banner
+# Carousel
 <h4>This repository contains script for making an HTML banner that can do slideshow.</h4>
 <br>
 <p>The Slideshow version 2.0 has finally come!</p>
