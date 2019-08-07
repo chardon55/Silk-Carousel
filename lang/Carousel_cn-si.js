@@ -1,8 +1,8 @@
-//Carousel v2.0 Simplified Chinese
-//ÂÖ²¥£¨°æ±¾£º2.0£© ¼òÌåÖÐÎÄ
+ï»¿//Carousel v2.0 Simplified Chinese
+//è½®æ’­ï¼ˆç‰ˆæœ¬ï¼š2.0ï¼‰ ç®€ä½“ä¸­æ–‡
+//
 
+InitialDisplay = "æ­£åœ¨åˆå§‹åŒ–â€¦â€¦";
+NoImageDisplay = "æ‰“å°ä¸­â€¦â€¦æ•¬è¯·æœŸå¾…";
 
-InitialDisplay = "ÕýÔÚ³õÊ¼»¯¡­¡­";
-NoImageDisplay = "´òÓ¡ÖÐ¡­¡­¾´ÇëÆÚ´ý";
-
-learnMore = "ÁË½â¸ü¶à >";
+learnMore = "äº†è§£æ›´å¤š >";

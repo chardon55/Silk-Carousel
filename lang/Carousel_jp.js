@@ -1,8 +1,8 @@
-//Carousel v2.0 Japanese
-//¥«¥ë©`¥»¥ë£¨¥Ð©`¥¸¥ç¥ó£º2.0£© ÈÕ±¾ÕZ
+ï»¿//Carousel v2.0 Japanese
+//ã‚«ãƒ«ãƒ¼ã‚»ãƒ«ï¼ˆãƒãƒ¼ã‚¸ãƒ§ãƒ³ï¼š2.0ï¼‰ æ—¥æœ¬èªž
 
 
-InitialDisplay = "³õÆÚ»¯ÖÐ£®£®£®";
-NoImageDisplay = "PRINTING£®£®£®";
+InitialDisplay = "åˆæœŸåŒ–ä¸­ï¼Žï¼Žï¼Ž";
+NoImageDisplay = "PRINTINGï¼Žï¼Žï¼Ž";
 
-learnMore = "¤â¤Ã¤ÈÔ”¤·¤¯Öª¤ë >";
+learnMore = "ã‚‚ã£ã¨è©³ã—ãçŸ¥ã‚‹ >";
