@@ -1,23 +1,15 @@
 /*							Slideshow						*
- *	Edition: 2.0 beta-2										*
+ *	Edition: 2.0 beta-3										*
  *	Created by: dy55										*
  *	Created date: Aug. 3, 2019								*/
 
 var slideNo = 0;
-var slideTarget;
 
 var defaultWidth = "60%";
 var defaultHeight = "450px";
 
-var curWidth;
-var curHeight;
-
-var curSlide = 1;
 var pauseTime = 500;
 var slideInterval = 5000 + pauseTime;
-
-var imageArray = new Array();
-var anchorArray = new Array();
 
 var InitialDisplay = "Initializing...";
 var NoImageDisplay = "Printing...";
@@ -31,86 +23,97 @@ $(() => {
 });
 
 
-function SlideRun(target, width = defaultWidth, height = defaultHeight, imageSrcs, anchorHrefs) {
+function SlideRun(_target, width, height, imageSrcs, anchorHrefs, _outline = true) {
 
-	imageArray = imageSrcs;
-	anchorArray = anchorHrefs;
+	var slideInfo = {
+		slideTarget: _target,
+		curWidth: new String(),
+		curHeight: new String(),
+		curSlide: 1,
+		imageArray: imageSrcs,
+		anchorArray: anchorHrefs,
+		outline: _outline
+	}
 
-	////
-	slideTarget = target;
 	slideNo++;
 
 	if (width == null)
-		curWidth = defaultWidth;
+		slideInfo.curWidth = defaultWidth;
 	else
-		curWidth = width;
+		slideInfo.curWidth = width;
 	if (height == null)
-		curHeight = defaultHeight;
+		slideInfo.curHeight = defaultHeight;
 	else
-		curHeight = height;
+		slideInfo.curHeight = height;
 	////
 
-	FormatSet();
-	ProgressBarSetPut(imageArray.length, anchorArray.length);
-	Init(imageArray, anchorArray);
+	FormatSet(slideInfo);
+	ProgressBarSetPut(slideInfo);
+	//buttonsBuild();
+	Init(slideInfo);
 
 	////
 }
 
-function FormatSet() {
-	$(slideTarget).css({
-		"height": curHeight,
-		"width": curWidth,
+function FormatSet(slideInfo) {
+	$(slideInfo.slideTarget).css({
+		"height": slideInfo.curHeight,
+		"width": slideInfo.curWidth,
 		"background-position": "center",
 		"background-size": "cover",
 		"transition": "background " + pauseTime + "ms",
 		"cursor": "pointer",
 		"overflow": "hidden",
-		"outline": "1.5px black solid"
+		"outline": () => {
+			if (slideInfo.outline)
+				return "1.5px black solid";
+			else
+				return "none";
+		}
 	});
 }
 
-function Init(imageArray = new Array(), anchorArray = new Array()) {
-	$(slideTarget).css("background-image", "url(" + imageArray[curSlide - 1] + ")")
+function Init(slideInfo) {
+	$(slideInfo.slideTarget).css("background-image", "url(" + slideInfo.imageArray[slideInfo.curSlide - 1] + ")")
 		.click(() => {
-			window.location.href = anchorArray[curSlide - 1];
+			window.location.href = slideInfo.anchorArray[slideInfo.curSlide - 1];
 		});
 
 
 	internalEventReference = setInterval(() => {
-		TurnNext(imageArray.length);
+		TurnNext(slideInfo);
 	}, slideInterval);
 	setTimeout(() => {
-		barReset(curSlide);
+		barReset(slideInfo);
 	}, pauseTime);
 }
 
-function ProgressBarSetPut(barNumber) {
-	$(slideTarget).append("<div class='barSet'></div>");
-	for (var i = 0; i < barNumber; i++) {
-		$(slideTarget + " > .barSet").append("<div class='" + barClassName + " bar" + i + "' role='progressbar'></div>");
+function ProgressBarSetPut(slideInfo) {
+	$(slideInfo.slideTarget).append("<div class='barSet'></div>");
+	for (var i = 0; i < slideInfo.imageArray.length; i++) {
+		$(slideInfo.slideTarget + " > .barSet").append("<div class='" + barClassName + " bar" + i + "' role='progressbar'></div>");
 			
-		$(slideTarget + " > .barSet > .bar" + i).click(() => {
+		$(slideInfo.slideTarget + " > .barSet > .bar" + i).click(() => {
 			clearInterval(internalEventReference);
-			//TurnTo(i + 1);
+			TurnTo(i + 1, slideInfo);
 		});
 	}
 
-	$(slideTarget + " > .barSet").css({
+	$(slideInfo.slideTarget + " > .barSet").css({
 		"height": "3%",
 		"display": "relative",
 		"width": "100%",
 		"margin-top": () => {
 			var adjPara = 30;
-			return (parseFloat(curHeight) - parseFloat(curHeight) / adjPara) + SliceToUnit(curHeight);
+			return (parseFloat(slideInfo.curHeight) - parseFloat(slideInfo.curHeight) / adjPara) + SliceToUnit(slideInfo.curHeight);
 		},
 		"z-index": "1"
 	});
 	var gap = 0.25;//%
-	$(slideTarget + " ." + barClassName).css({
+	$(slideInfo.slideTarget + " ." + barClassName).css({
 		"display": "relative",
 		"height": "100%",
-		"width": 100 / barNumber - gap + "%",
+		"width": 100 / slideInfo.imageArray.length - gap + "%",
 		"display": "inline-block",
 		"margin-right": gap + "%"
 	});
@@ -121,33 +124,33 @@ function SliceToUnit(str) {
 	return str.substring(i);
 }
 
-function TurnTo(slideNum) {
-	curSlide = slideNum;
+function TurnTo(toSlide, slideInfo) {
+	slideInfo.curSlide = toSlide;
 
 	$(() => {
-		$(slideTarget).css("background-image", "url(" + imageArray[slideNum - 1] + ")");
-		$(slideTarget).click(() => {
-			window.location.href = anchorArray[slideNum - 1];
+		$(slideInfo.slideTarget).css("background-image", "url(" + slideInfo.imageArray[toSlide - 1] + ")");
+		$(slideInfo.slideTarget).click(() => {
+			window.location.href = slideInfo.anchorArray[toSlide - 1];
 		});
 
 		setTimeout(() => {
-			barReset(slideNum);
+			barReset(slideInfo);
 		}, pauseTime);
 	});
 }
 
-function TurnNext(total) {
-	if (++curSlide > total)
-		TurnTo(1);
+function TurnNext(slideInfo) {
+	if (++slideInfo.curSlide > slideInfo.imageArray.length)
+		TurnTo(1, slideInfo);
 	else
-		TurnTo(curSlide);
+		TurnTo(slideInfo.curSlide, slideInfo);
 }
 
-function TurnPrev(total) {
-	if (--curSlide < 1)
-		TurnTo(total);
+function TurnPrev(slideInfo) {
+	if (--slideInfo.curSlide < 1)
+		TurnTo(slideInfo.imageArray.length, slideInfo);
 	else
-		TurnTo(curSlide);
+		TurnTo(slideInfo.curSlide, slideInfo);
 }
 
 ///////////////////////////////////////
@@ -183,16 +186,16 @@ function barBuild() {
 
 var firstTime = true;
 
-function barReset(actNum) {
+function barReset(slideInfo) {
 
 	$(() => {
 
-		$(slideTarget + " ." + barClassName + " > div").css({
+		$(slideInfo.slideTarget + " ." + barClassName + " > div").css({
 			"transition": "none",
 			"width": "0"
 		});
 
-		$(slideTarget + " .bar" + (actNum - 1) + " > div").css({
+		$(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css({
 			"transition": "all " + (slideInterval - pauseTime) + "ms linear"
 		});
 
@@ -200,16 +203,16 @@ function barReset(actNum) {
 			if (!isEdge()) {
 				////Transition Effect Adjustment Buffer
 				var offsetTime = 0;
-				while ($(slideTarget + " .bar" + (actNum - 1) + " > div").css("transition") != "all " + (slideInterval - offsetTime) + "ms linear"
+				while ($(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css("transition") != "all " + (slideInterval - offsetTime) + "ms linear"
 					&&
 					offsetTime < slideInterval) {
 					setTimeout(() => {
 
-						$(slideTarget + " .bar" + (actNum - 1) + " > div").css({
+						$(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css({
 							"transition": "all " + (slideInterval - offsetTime - pauseTime) + "ms linear"
 						});
 
-					}, offsetTime += 20)
+					}, offsetTime += 100)
 				}
 				delete offsetTime;
 				////
@@ -220,7 +223,7 @@ function barReset(actNum) {
 			firstTime = false;
 		}
 
-		$(slideTarget + " .bar" + (actNum - 1) + " > div").css({
+		$(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css({
 			"width": "100%"
 		});
 
@@ -231,3 +234,74 @@ function barReset(actNum) {
 function isEdge() {
 	return navigator.userAgent.includes("Edge") || navigator.userAgent.includes("Chrome / 70.0.3538.102");
 }
+
+
+var btnLeftId = "slideshowButtonLeft";
+var btnRightId = "slideshowButtonRight";
+
+function buttonsBuild(slideInfo) {
+	$(slideInfo.slideTarget).prepend("<a class='" + buttonClassName + "' id='" + btnLeftId + "'><</a><a class='" + buttonClassName + "' id='" + btnRightId + "'>></a>");
+
+}
+
+///////////////////////////////////////
+
+//Button Embedded 1.0 alpha
+//Created by: dy55
+//Aug.5 2019
+
+var buttonClassName = "button";
+
+var size = "30px";
+var sizeSmall = "15px";
+
+var fontSize = "25px";
+var fontSizeSmall = "12.5px";
+
+var bgColor = "#ffffff";
+var color = "#000000";
+var borderInfo = "0.6px black solid";
+
+$(() => {
+	$("." + buttonClassName).css({
+		"width": size,
+		"height": size,
+		"border-radius": "50%",
+		"background-color": bgColor,
+		"color": color,
+		"border": borderInfo,
+		"display": "inline-block",
+		"text-align": "center",
+		"transition": "all 0.3s",
+		"font-size": fontSize,
+		"position": "relative"
+	});
+
+	addEventListener("resize", () => {
+		if (window.innerWidth < 800 && $("." + buttonClassName).css("width") == size)
+			$("." + buttonClassName).css({
+				"width": sizeSmall,
+				"height": sizeSmall,
+				"font-size": fontSizeSmall
+			});
+		else if (window.innerWidth >= 800 && $("." + buttonClassName).css("width") == sizeSmall)
+			$("." + buttonClassName).css({
+				"width": size,
+				"height": size,
+				"font-size": fontSize
+			});
+	});
+});
+
+function hoverEffect(hoverTarget, mouseonAction, mouseleaveAction) {
+	$(hoverTarget).mouseover(mouseonAction);
+	$(hoverTarget).mouseleave(mouseleaveAction);
+}
+
+///////////////////////////////////////
+/*
+$(() => {
+	$("." + buttonClassName).css({
+		"opacity": "0"
+	});
+});*/
