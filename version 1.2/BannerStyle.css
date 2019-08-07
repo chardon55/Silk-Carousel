@@ -1,20 +1,20 @@
 /* CSS Document */
-/*	<> by dy55	2019-5-2, 5-3, 5-4	*/
+/*	<> by dy55	2019-5-2, 5-3, 5-4, 8-7	*/
 /*	Assistant StyleSheet for SlideShow Banner	*/
 
 
-progress::-webkit-progress-bar{
+.Progress_bar::-webkit-progress-bar {
 	position: inherit;
 	background: none;
 }
-progress::-webkit-progress-value{
+.Progress_bar::-webkit-progress-value {
 	background-color: white;
 	position: inherit;
-} 
-progress{
+}
+.Progress_bar {
 	height: 5px;
 	background-color: rgba(255,255,255,0.65);
-	border:none;
+	border: none;
 	position: inherit;
-	color:white;
+	color: white;
 }

@@ -1,6 +1,6 @@
 // Slide Banner Script (GitHub Edition)
-//	<> by dy55	2019-5-2, 5-3, 5-4, 5-19, 8-4
-//  Version: 1.2.0
+//	<> by dy55	2019-5-2, 5-3, 5-4, 5-19, 8-4, 8-7
+//  Version: 1.2.1
 
 /*	CAUTION: The script needs jQuery js-file to work in order	*/
 
@@ -70,7 +70,9 @@ function Slide_Run(Slide_id, width = 1250, height = 500, banners = new Array(), 
 
     $(Slide_id + " img").width(_width);
     $(Slide_id + " img").height(_height);
-	$(Slide_id + " img").css("border-radius", "5px");
+	$(Slide_id + " img").css({
+		"border-radius": "5px"
+	});
 	$(Slide_id).css({
 		"border-radius": "5px",
 		"box-shadow": "0px 0px 5px",
