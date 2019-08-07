@@ -1,7 +1,7 @@
 # Slideshow_Banner
 <h4>This repository contains script for making an HTML banner that can do slideshow.</h4>
 <br>
-<p>The Slideshow 2.0 beta-3 version has finally come!</p>
+<p>The Slideshow version 2.0 has finally come!</p>
 <p>The algorithm has been changed to adapt to some testing features.</p>
 <br>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natrual.</p>
