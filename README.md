@@ -3,6 +3,7 @@
 <br>
 <p>The Slideshow version 2.0 has finally come!</p>
 <p>The algorithm has been changed to adapt to some testing features.</p>
+<p>The bug making the progress bars' onclick error has been finally repaired at 2.0 beta-4</p>
 <br>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natrual.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
