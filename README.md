@@ -2,6 +2,7 @@
 <h4>This repository contains script for making an js carousel.</h4>
 <br>
 <p>The Carousel version 2.0 beta has finally come!</p>
+<p>The Carousel version 2.0 has finally come!</p>
 <p>The algorithm has been changed to adapt to some testing features.</p>
 <p>The bug making the progress bars' onclick error has been finally repaired successfully at 2.0 beta-4</p>
 <br>
