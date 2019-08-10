@@ -6,7 +6,7 @@
 <p>Added play/pause button for test.</p>
 <p>"Learn more" button has been formattedly modified.</p>
 <br>
-<p>Lambda Expressions are used in new version's code to make it more fluent and natrual.</p>
+<p>Lambda Expressions are used in new version's code to make it more fluent and natural.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
 <br>
 <p>The update is coming. Thanks for your support!</p>
