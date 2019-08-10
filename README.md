@@ -21,6 +21,7 @@
 </ul>
 
 <code>
+
 	//	The number of the element in the array can be changed
 	//		  TARGET   WIDTH   HEIGHT
 	carouselRun("#Slide", "60%", "450px", [	//IMAGES
