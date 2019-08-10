@@ -2,9 +2,9 @@
 <h4>This repository contains script for making an js carousel.</h4>
 <br>
 <p>The Carousel version 2.0 beta has finally come!</p>
-<p>The Carousel version 2.0 has finally come!</p>
 <p>The algorithm has been changed to adapt to some testing features.</p>
-<p>The bug making the progress bars' onclick error has been finally repaired successfully at 2.0 beta-4</p>
+<p>Added play/pause button for test.</p>
+<p>"Learn more" button has been formattedly modified.</p>
 <br>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natrual.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
@@ -22,7 +22,6 @@
 
 <code>
 	//	The number of the element in the array can be changed
-			
 	//		  TARGET   WIDTH   HEIGHT
 	carouselRun("#Slide", "60%", "450px", [	//IMAGES
 		"Demo_imgs/InternChina-Qingdao-coast-at-night.jpg",
