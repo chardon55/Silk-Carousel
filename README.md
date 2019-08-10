@@ -1,7 +1,7 @@
 # Carousel
 <h4>This repository contains script for making an js carousel.</h4>
 <br>
-<p>The Slideshow version 2.0 has finally come!</p>
+<p>The Carousel version 2.0 beta has finally come!</p>
 <p>The algorithm has been changed to adapt to some testing features.</p>
 <p>The bug making the progress bars' onclick error has been finally repaired successfully at 2.0 beta-4</p>
 <br>
@@ -23,7 +23,7 @@
 	//	The number of the element in the array can be changed
 			
 	//		  TARGET   WIDTH   HEIGHT
-	SlideRun("#Slide", "60%", "450px", [	//IMAGES
+	carouselRun("#Slide", "60%", "450px", [	//IMAGES
 		"Demo_imgs/InternChina-Qingdao-coast-at-night.jpg",
 		"Demo_imgs/Qingdao-China.jpg",
 		"Demo_imgs/a191fb_f9d0d32934a341138b3f439df2e17261.jpg_srz_1532_1021_85_22_0.50_1.20_0.jfif.jpg",

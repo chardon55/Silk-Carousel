@@ -1,9 +1,7 @@
-/*							Carousel						*
- *	Version: 2.0 beta-4										*
+﻿/*							Carousel						*
+ *	Version: 2.0 beta-5										*
  *	Created by: dy55										*
  *	Created date: Aug. 3, 2019								*/
-
-var slideNo = 0;
 
 var defaultWidth = "60%";
 var defaultHeight = "450px";
@@ -12,60 +10,62 @@ var pauseTime = 500;
 var slideInterval = 5000 + pauseTime;
 
 var InitialDisplay = "Initializing...";
-var NoImageDisplay = "Printing...";
-var learnMore = "Learn more >"
+var NoImageDisplay = "No Image";
+var learnMore = "Learn more";
 
 //var webkitPara = 70;
 //var thisBrowserPara = window.outerHeight - window.innerHeight;
 
 var internalEventReference;
+
+var carouselInfo;
+
 $(() => {
 
 });
 
 
-function SlideRun(_target, width, height, imageSrcs, anchorHrefs, _outline = true) {
+function carouselRun(_target, width, height, imageSrcs, anchorHrefs, _outline = true, playToggleBtn = true) {
 
-	var slideInfo = {
-		slideTarget: _target,
+	carouselInfo = {
+		carouselTarget: _target,
 		curWidth: new String(),
 		curHeight: new String(),
 		curSlide: 1,
 		imageArray: imageSrcs,
 		anchorArray: anchorHrefs,
-		outline: _outline
+		outline: _outline,
+		playButton: playToggleBtn
 	}
 
-	slideNo++;
-
 	if (width == null)
-		slideInfo.curWidth = defaultWidth;
+		carouselInfo.curWidth = defaultWidth;
 	else
-		slideInfo.curWidth = width;
+		carouselInfo.curWidth = width;
 	if (height == null)
-		slideInfo.curHeight = defaultHeight;
+		carouselInfo.curHeight = defaultHeight;
 	else
-		slideInfo.curHeight = height;
+		carouselInfo.curHeight = height;
 	////
 
-	FormatSet(slideInfo);
-	ProgressBarSetPut(slideInfo);
+	FormatSet();
+	ProgressBarSetPut();
 	//buttonsBuild();
-	Init(slideInfo);
+	Init();
 
 	////
 }
 
-function FormatSet(slideInfo) {
-	$(slideInfo.slideTarget).css({
-		"height": slideInfo.curHeight,
-		"width": slideInfo.curWidth,
+function FormatSet() {
+	$(carouselInfo.carouselTarget).css({
+		"height": carouselInfo.curHeight,
+		"width": carouselInfo.curWidth,
 		"background-position": "center",
 		"background-size": "cover",
 		"transition": "background " + pauseTime + "ms",
 		"overflow": "hidden",
 		"outline": () => {
-			if (slideInfo.outline)
+			if (carouselInfo.outline)
 				return "1.5px black solid";
 			else
 				return "none";
@@ -73,71 +73,107 @@ function FormatSet(slideInfo) {
 	});
 }
 
-function Init(slideInfo) {
-	TurnTo(slideInfo.curSlide, slideInfo);
+function Init() {
+	TurnTo(carouselInfo.curSlide, carouselInfo);
+	carouselPlay();
 
-	internalEventReference = setInterval(() => {
-		TurnNext(slideInfo);
-	}, slideInterval);
-	setTimeout(() => {
-		barReset(slideInfo);
-	}, pauseTime);
+	var rightArrowLearnMore = "rightArrowLearnMore";
 
-	$(slideInfo.slideTarget).prepend("<a class='slideAnchor'>" + learnMore + "</a>");
+	$(carouselInfo.carouselTarget).prepend("<div class='infoBoard'><a class='slideAnchor'>" + learnMore + "<span class='" + rightArrowLearnMore + "'>></span></a></div>");
+	$(carouselInfo.carouselTarget + " .infoBoard").append("<br><div class='" + buttonClassName + " playPause'></div>");
 
 	var anchorColor = "black"
 
-	$(slideInfo.slideTarget + " > .slideAnchor").css({
+	$(carouselInfo.carouselTarget + " .infoBoard").css({
+		"position": "absolute",
+		"width": carouselInfo.curWidth
+	});
+
+	var defaultBoxShadow = "0 0 3px black";
+
+	$(carouselInfo.carouselTarget + " .slideAnchor").css({
 		"z-index": "1",
 		"cursor": "pointer",
-		"background-color": "rgba(255, 255, 255, 0.4)",
-		"padding": "1%",
+		"background-color": "rgb(255, 255, 255)",
+		"padding": "2%",
 		"display": "inline-block",
+		"text-align": "center",
 		"color": anchorColor,
-		"position": "absolute"
+		"position": "relative",
+		"border-radius": "5px",
+		"box-shadow": defaultBoxShadow,
+		"transition": "all 0.3s"
 	});
-	hoverEffect(slideInfo.slideTarget + " > .slideAnchor",
+	$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
+		"position": "relative",
+		"margin-left": "5px",
+		"display": "inline-block",
+		"transition": "all 0.3s"
+	});
+
+	hoverEffect(carouselInfo.carouselTarget + " .slideAnchor",
 		() => {
-			$(slideInfo.slideTarget + " > .slideAnchor").css({
-				"color": "blue",
-				"text-decoration": "underline"
+			$(carouselInfo.carouselTarget + " .slideAnchor").css({
+				"box-shadow": "0 0 8px black"
+			});
+			$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
+				"transform": "translateX(5px)"
 			});
 		},
 		() => {
-			$(slideInfo.slideTarget + " > .slideAnchor").css({
-				"color": anchorColor,
-				"text-decoration": "none"
+			$(carouselInfo.carouselTarget + " .slideAnchor").css({
+				"box-shadow": defaultBoxShadow,
+			});
+			$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
+				"transform": "translateX(0px)"
 			});
 		});
+
+
+	$(carouselInfo.carouselTarget + " .playPause").css({
+		"display": () => {
+			if (carouselInfo.playButton)
+				return "inline-block";
+			else
+				return "none";
+		},
+		"margin-top": "1%"
+	})
+		.click(() => {
+			carouselPlayToggle();
+		});
+
 }
 
-function ProgressBarSetPut(slideInfo) {
-	$(slideInfo.slideTarget).append("<div class='barSet'></div>");
-	for (var i = 0; i < slideInfo.imageArray.length; i++) {
+function ProgressBarSetPut() {
+	$(carouselInfo.carouselTarget).append("<div class='barSet'></div>");
+	for (var i = 0; i < carouselInfo.imageArray.length; i++) {
 		const cNum = i + 1;
-		$(slideInfo.slideTarget + " > .barSet").append("<div class='" + barClassName + " bar" + i + "'></div>");
-		document.getElementsByClassName("bar" + i)[slideNo - 1].onclick = ev => {
-			clearInterval(internalEventReference);
-			TurnTo(cNum, slideInfo, false);
-		};
+		$(carouselInfo.carouselTarget + " > .barSet").append("<div class='" + barClassName + " bar" + i + "'></div>");
+		
+		$(carouselInfo.carouselTarget + " .bar" + i).click(() => {
+			carouselPause();
+			TurnTo(cNum, false);
+		});
 	}
 
-	$(slideInfo.slideTarget + " > .barSet").css({
+	$(carouselInfo.carouselTarget + " > .barSet").css({
 		"height": "3%",
 		"display": "relative",
 		"width": "100%",
 		"margin-top": () => {
 			var adjPara = 30;
 			var offsetPara = 0;
-			return (parseFloat(slideInfo.curHeight) - parseFloat(slideInfo.curHeight) / adjPara + offsetPara) + SliceToUnit(slideInfo.curHeight);
+			return (parseFloat(carouselInfo.curHeight) - parseFloat(carouselInfo.curHeight) / adjPara + offsetPara) + SliceToUnit(carouselInfo.curHeight);
 		},
-		"z-index": "1"
+		"z-index": "1",
+		"cursor": "pointer"
 	});
 	var gap = 0.25;//%
-	$(slideInfo.slideTarget + " ." + barClassName).css({
+	$(carouselInfo.carouselTarget + " ." + barClassName).css({
 		"display": "relative",
 		"height": "100%",
-		"width": 100 / slideInfo.imageArray.length - gap + "%",
+		"width": 100 / carouselInfo.imageArray.length - gap + "%",
 		"display": "inline-block",
 		"margin-right": gap + "%"
 	});
@@ -148,33 +184,34 @@ function SliceToUnit(str) {
 	return str.substring(i);
 }
 
-function TurnTo(toSlide, slideInfo, transitionBar = true) {
-	slideInfo.curSlide = toSlide;
+function TurnTo(toSlide, transitionBar = true) {
+	carouselInfo.curSlide = toSlide;
 
 	$(() => {
-		$(slideInfo.slideTarget).css("background-image", "url(" + slideInfo.imageArray[toSlide - 1] + ")");
-		$(slideInfo.slideTarget + " > .slideAnchor").click(() => {
-			window.location.href = slideInfo.anchorArray[toSlide - 1];
+
+		$(carouselInfo.carouselTarget).css("background-image", "url(" + carouselInfo.imageArray[toSlide - 1] + ")");
+		$(carouselInfo.carouselTarget + " .slideAnchor").click(() => {
+			window.location.href = carouselInfo.anchorArray[toSlide - 1];
 		});
 
 		setTimeout(() => {
-			barReset(slideInfo, transitionBar);
+			barReset(transitionBar);
 		}, pauseTime);
 	});
 }
 
-function TurnNext(slideInfo, transitionBar = true) {
-	if (++slideInfo.curSlide > slideInfo.imageArray.length)
-		TurnTo(1, slideInfo, transitionBar);
+function TurnNext(transitionBar = true) {
+	if (++carouselInfo.curSlide > carouselInfo.imageArray.length)
+		TurnTo(1, transitionBar);
 	else
-		TurnTo(slideInfo.curSlide, slideInfo, transitionBar);
+		TurnTo(carouselInfo.curSlide, transitionBar);
 }
 
-function TurnPrev(slideInfo, transitionBar = true) {
-	if (--slideInfo.curSlide < 1)
-		TurnTo(slideInfo.imageArray.length, slideInfo, transitionBar);
+function TurnPrev(transitionBar = true) {
+	if (--carouselInfo.curSlide < 1)
+		TurnTo(carouselInfo.imageArray.length, transitionBar);
 	else
-		TurnTo(slideInfo.curSlide, slideInfo, transitionBar);
+		TurnTo(carouselInfo.curSlide, transitionBar);
 }
 
 ///////////////////////////////////////
@@ -201,7 +238,7 @@ function barBuild() {
 		"position": "relative",
 		"display": "inline-block",
 		"height": "100%",
-		"z-index": "1"
+		"z-index": "2"
 	});
 
 }
@@ -210,16 +247,16 @@ function barBuild() {
 
 var firstTime = true;
 
-function barReset(slideInfo, transitionBar = true) {
+function barReset(transitionBar = true) {
 
 	$(() => {
 
-		$(slideInfo.slideTarget + " ." + barClassName + " > div").css({
+		$(carouselInfo.carouselTarget + " ." + barClassName + " > div").css({
 			"transition": "none",
 			"width": "0"
 		});
 
-		$(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css({
+		$(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css({
 			"transition": () => {
 				if (transitionBar)
 					return "all " + (slideInterval - pauseTime) + "ms linear";
@@ -232,12 +269,12 @@ function barReset(slideInfo, transitionBar = true) {
 			if (!isEdge()) {
 				////Transition Effect Adjustment Buffer
 				var offsetTime = 0;
-				while ($(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css("transition") != "all " + (slideInterval - offsetTime) + "ms linear"
+				while ($(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css("transition") != "all " + (slideInterval - offsetTime) + "ms linear"
 					&&
 					offsetTime < slideInterval) {
 					setTimeout(() => {
 
-						$(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css({
+						$(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css({
 							"transition": "all " + (slideInterval - offsetTime - pauseTime) + "ms linear"
 						});
 
@@ -252,7 +289,7 @@ function barReset(slideInfo, transitionBar = true) {
 			firstTime = false;
 		}
 
-		$(slideInfo.slideTarget + " .bar" + (slideInfo.curSlide - 1) + " > div").css({
+		$(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css({
 			"width": "100%"
 		});
 
@@ -268,8 +305,8 @@ function isEdge() {
 var btnLeftId = "CarouselButtonLeft";
 var btnRightId = "CarouselButtonRight";
 
-function buttonsBuild(slideInfo) {
-	$(slideInfo.slideTarget).prepend("<a class='" + buttonClassName + "' id='" + btnLeftId + "'><</a><a class='" + buttonClassName + "' id='" + btnRightId + "'>></a>");
+function buttonsBuild() {
+	$(carouselInfo.carouselTarget).prepend("<a class='" + buttonClassName + "' id='" + btnLeftId + "'><</a><a class='" + buttonClassName + "' id='" + btnRightId + "'>></a>");
 
 }
 
@@ -282,7 +319,7 @@ function buttonsBuild(slideInfo) {
 var buttonClassName = "button";
 
 var size = "30px";
-var sizeSmall = "15px";
+var sizeSmall = "18px";
 
 var fontSize = "25px";
 var fontSizeSmall = "12.5px";
@@ -298,13 +335,19 @@ $(() => {
 		"border-radius": "50%",
 		"background-color": bgColor,
 		"color": color,
-		"border": borderInfo,
+		//"border": borderInfo,
 		"display": "inline-block",
 		"text-align": "center",
-		"transition": "all 0.3s",
+		//"transition": "all 0.3s",
 		"font-size": fontSize,
-		"position": "relative"
+		"position": "relative",
+		"cursor": "pointer",
+		"box-shadow": "0 0 3px"
 	});
+
+	setTimeout(() => {
+		$("." + buttonClassName).css("transition", "all 0.3s");
+	}, 10);
 
 	addEventListener("resize", () => {
 		if (window.innerWidth < 800 && $("." + buttonClassName).css("width") == size)
@@ -320,6 +363,18 @@ $(() => {
 				"font-size": fontSize
 			});
 	});
+
+	hoverEffect("." + buttonClassName,
+		() => {
+			$("." + buttonClassName).css({
+				"box-shadow": "0 0 8px"
+			});
+		},
+		() => {
+			$("." + buttonClassName).css({
+				"box-shadow": "0 0 3px"
+			});
+		});
 });
 
 function hoverEffect(hoverTarget, mouseonAction, mouseleaveAction) {
@@ -334,3 +389,47 @@ $(() => {
 		"opacity": "0"
 	});
 });*/
+
+/////////////////////////////
+
+function carouselPlay() {
+
+}
+
+function carouselPlay() {
+	$(carouselInfo.carouselTarget + " .playPause").css({
+		"background-image": "url(images/pause.png)",
+		"background-size": "cover",
+		"background-position": "center"
+	});
+
+	internalEventReference = setInterval(() => {
+		TurnNext();
+	}, slideInterval);
+	setTimeout(() => {
+		barReset();
+	}, pauseTime);
+	TurnTo(carouselInfo.curSlide);
+}
+
+function carouselPause() {
+	$(carouselInfo.carouselTarget + " .playPause").css({
+		"background-image": "url(images/start.png)",
+		"background-size": "cover", 
+		"background-position": "center"//▶⏸
+	});
+	clearInterval(internalEventReference);
+	internalEventReference = null;
+	$(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css({
+		"width": "100%",
+		"transition": "none",
+		"background-position": "center"
+	});
+}
+
+function carouselPlayToggle() {
+	if (internalEventReference == null)
+		carouselPlay();
+	else
+		carouselPause();
+}
