@@ -2,7 +2,7 @@
 //Carousel v2.0 Japanese
 
 
-InitialDisplay = "初期化中．．．";
-NoImageDisplay = "写真なし";
+initializing = "初期化中．．．";
+noImage = "写真なし";
 
 learnMore = "もっと詳しく知る";

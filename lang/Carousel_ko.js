@@ -2,7 +2,7 @@
 //Carousel v2.0 Korean
 
 
-InitialDisplay = "초기화 중 ...";
-NoImageDisplay = "사진이 없습니다";
+initializing = "초기화 중 ...";
+noImage = "사진이 없습니다";
 
 learnMore = "더 알아보기";

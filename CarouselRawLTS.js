@@ -1,7 +1,10 @@
 ﻿/*                          Carousel                        *
- *  Version: 2.0                                            *
+ *  Edition: Long-Term Service                              *
+ *  Version: 2                                              *
  *  Created by: dy55                                        *
- *  Created date: Aug. 3, 2019                              */
+ *  Created date: Aug. 11, 2019                             */
+//  This file is targeted on sites importing http address of the raw of it directly.
+//  LTS file will not be renamed, moved or deleted, unless there is something forces to do them compulsorily.
 
 var defaultWidth = "60%";
 var defaultHeight = "450px";
@@ -13,17 +16,9 @@ var initializing = "Initializing...";
 var noImage = "No Image";
 var learnMore = "Learn more";
 
-//var webkitPara = 70;
-//var thisBrowserPara = window.outerHeight - window.innerHeight;
-
 var internalEventReference;
 
 var carouselInfo;
-
-$(() => {
-
-});
-
 
 function carouselRun(_target, width, height, imageSrcs, anchorHrefs, htBoardTexts = new Array(), _outline = true, playToggleBtn = true) {
 
@@ -192,7 +187,7 @@ function ProgressBarSetPut() {
 	for (var i = 0; i < carouselInfo.imageArray.length; i++) {
 		const cNum = i + 1;
 		$(carouselInfo.carouselTarget + " > .barSet").append("<div class='" + barClassName + " bar" + i + "'></div>");
-		
+
 		$(carouselInfo.carouselTarget + " .bar" + i).click(() => {
 			carouselPause();
 			TurnTo(cNum, false);
@@ -329,7 +324,7 @@ function barReset(transitionBar = true) {
 				////
 			}
 			else {
-				
+
 			}
 			firstTime = false;
 		}

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Demo"
+    "\\Demo",
+    "\\images",
+    "\\lang"
   ],
+  "SelectedNode": "\\CarouselRawLTS.js",
   "PreviewInSolutionExplorer": false
 }

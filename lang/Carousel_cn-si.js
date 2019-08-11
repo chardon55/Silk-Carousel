@@ -2,7 +2,7 @@
 //Carousel v2.0 Simplified Chinese
 
 
-InitialDisplay = "正在初始化……";
-NoImageDisplay = "没有图片";
+initializing = "正在初始化……";
+noImage = "没有图片";
 
 learnMore = "了解更多";
