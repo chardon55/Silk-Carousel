@@ -1,10 +1,10 @@
 # Carousel
-<h4>This repository contains script for making a js carousel.</h4>
+<h4>This repository contains script for making an HTML carousel.</h4>
 <br>
-<p>The Carousel version 2.0 beta has finally come!</p>
+<p>The Carousel version 2.0 has finally come!</p>
 <p>The algorithm has been changed to adapt to some testing features.</p>
-<p>Added play/pause button for test.</p>
-<p>"Learn more" button has been formattedly modified.</p>
+<p>"Learn more" button has been moved into hyper-text board.</p>
+<p><b>The LTS(long-term service) edition has come for online raw importers.</b></p>
 <br>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natural.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
@@ -20,6 +20,7 @@
   <li>You can view the demo site to learn the example about how to use it.</li>
 </ul>
 
+<h3>Basic Use Demo</h3>
 <code>
 
 	//	The number of the element in the array can be changed
