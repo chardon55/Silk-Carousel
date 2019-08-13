@@ -10,6 +10,8 @@
 <p>"Learn more" button has been moved into hyper-text board.</p>
 <p><b>The LTS(long-term service) edition has come for online raw importers.</b></p>
 <br>
+<p><i>The min edition has come.</i></p>
+<br>
 <p>The update is coming. Thanks for your support!</p>
 
 <hr>
