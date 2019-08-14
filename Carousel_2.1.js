@@ -1,5 +1,5 @@
 ﻿/*                          Carousel                        *
- *  Version: 2.1                                            *
+ *  Version: 2.1.1                                          *
  *  Created by: dy55                                        *
  *  Created date: Aug. 3, 2019                              */
 
@@ -164,7 +164,7 @@ function Init() {
 		"background-color": "#ffffff",
 		"position": "absolute",
 		"margin-top": parseFloat(carouselInfo.curHeight) * 3 / 4 + SliceToUnit(carouselInfo.curHeight),
-		"box-shadow": "0 0 6px black",
+		"box-shadow": "1px 0 6px black",
 		"background-size": "32%",
 		"background-position": "center",
 		"background-repeat": "no-repeat",
@@ -182,7 +182,6 @@ function Init() {
 	});
 
 	$(carouselInfo.carouselTarget + " .turnBtn").css({
-		//"position": "relative",
 		"margin-top": timesOfHeight(0.49),
 		"z-index": "2"
 	});
@@ -256,11 +255,7 @@ function ProgressBarSetPut() {
 		"height": "3%",
 		"display": "relative",
 		"width": "100%",
-		"margin-top": () => {
-			var adjPara = 30;
-			var offsetPara = 0;
-			return (parseFloat(carouselInfo.curHeight) - parseFloat(carouselInfo.curHeight) / adjPara + offsetPara) + SliceToUnit(carouselInfo.curHeight);
-		},
+		"margin-top": timesOfHeight(1, -19),
 		"z-index": "1",
 		"cursor": "pointer"
 	});
@@ -313,7 +308,7 @@ function TurnPrev(transitionBar = true) {
 }
 
 ///////////////////////////////////////
-//progress bar embedded v1.0(alpha)
+//progress bar embedded v1.1
 //Created by dy55 on Aug. 4, 2019
 
 var barClassName = "progressBar";
@@ -334,8 +329,8 @@ function barBuild() {
 	$("." + barClassName + " > div").css({
 		"background-color": "#ffffff",
 		"position": "relative",
-		"display": "inline-block",
 		"height": "100%",
+		"width": "0",
 		"z-index": "2"
 	});
 
@@ -410,7 +405,7 @@ function buttonsBuild() {
 
 ///////////////////////////////////////
 
-//Button Embedded 1.0 alpha
+//Button Embedded 1.0
 //Created by: dy55
 //Aug.5 2019
 
