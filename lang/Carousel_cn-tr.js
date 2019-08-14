@@ -1,5 +1,5 @@
-﻿//輪播（版本：2.0） 繁體中文
-//Carousel v2.0 Traditional Chinese
+﻿//輪播（版本：2.1） 繁體中文
+//Carousel v2.1 Traditional Chinese
 
 
 initializing = "正在初始化……";

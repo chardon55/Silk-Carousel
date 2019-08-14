@@ -1,5 +1,5 @@
 ﻿/*                          Carousel                        *
- *  Version: 2.0                                            *
+ *  Version: 2.1                                            *
  *  Created by: dy55                                        *
  *  Created date: Aug. 3, 2019                              */
 
@@ -82,14 +82,17 @@ function Init() {
 	$(carouselInfo.carouselTarget).prepend("<span class='" + statusField + "'></span>");
 	$(carouselInfo.carouselTarget + " ." + statusField).text(initializing)
 		.css({
-			"position": "absolute"
+			"position": "absolute",
+			"color": "#ff0000",
+			"z-index": "0",
+			"font-weight": "bold",
+			"font-size": "120%"
 		});
 
 	var rightArrowLearnMore = "rightArrowLearnMore";
 
-	$(carouselInfo.carouselTarget).prepend("<div class='infoBoard'></div>");
-	$(carouselInfo.carouselTarget + " .infoBoard").append("<br><div class='" + buttonClassName + " playPause'></div>")
-		.prepend("<div class='htBoard'></div>");
+	$(carouselInfo.carouselTarget).prepend("<div class='infoBoard'></div><div class='playPause leaveHide'></div><div class='" + buttonClassName + " turnBtn btnPrev leaveHide'></div><div class='" + buttonClassName + " turnBtn btnNext leaveHide'></div>");
+	$(carouselInfo.carouselTarget + " .infoBoard").prepend("<div class='htBoard'></div>");
 
 	$(carouselInfo.carouselTarget + " .htBoard").append("<a class='slideAnchor'>" + learnMore + "<span class='" + rightArrowLearnMore + "'>></span></a>")
 		.prepend("<div class='hText'></div>")
@@ -98,6 +101,11 @@ function Init() {
 			"padding": "1%",
 			"font-family": "Calibri, DengXian, 'HGGothicM'"
 		});
+
+
+	$(carouselInfo.carouselTarget + " .leaveHide").css({
+		"opacity": "0"
+	});
 
 	var anchorColor = "white";
 
@@ -148,7 +156,20 @@ function Init() {
 			else
 				return "none";
 		},
-		"margin-top": "1%"
+		"margin-top": "1%",
+		"width": "50px",
+		"height": "35px",
+		"transition": "all 0.3s",
+		"cursor": "pointer",
+		"background-color": "#ffffff",
+		"position": "absolute",
+		"margin-top": parseFloat(carouselInfo.curHeight) * 3 / 4 + SliceToUnit(carouselInfo.curHeight),
+		"box-shadow": "0 0 6px black",
+		"background-size": "32%",
+		"background-position": "center",
+		"background-repeat": "no-repeat",
+		"border-radius": "0 17.5px 17.5px 0",
+		"z-index": "2"
 	})
 		.click(() => {
 			carouselPlayToggle();
@@ -160,29 +181,61 @@ function Init() {
 		"width": "90%"
 	});
 
-	//traverse all images to avoid flickers
-	$(carouselInfo.carouselTarget).append("<div class='imgBuffer' style='display: none;'></div>");
-	for (var imageHref of carouselInfo.imageArray)
-		$(carouselInfo.carouselTarget + " .imgBuffer").css("background-image", "url(" + imageHref + ")");
-	//
+	$(carouselInfo.carouselTarget + " .turnBtn").css({
+		//"position": "relative",
+		"margin-top": timesOfHeight(0.49),
+		"z-index": "2"
+	});
+
+	$(carouselInfo.carouselTarget + " .btnPrev").css({
+		"float": "left",
+		"background-image": "url(../images/prev.png)",
+		"background-size": "cover",
+		"background-repeat": "no-repeat",
+		"background-position": "center"
+	}).click(() => {
+		carouselPause();
+		TurnPrev(false);
+	});
+
+	$(carouselInfo.carouselTarget + " .btnNext").css({
+		"float": "right",
+		"background-image": "url(../images/prev.png)",
+		"transform": "rotate(180deg)",
+		"background-size": "cover",
+		"background-repeat": "no-repeat",
+		"background-position": "center"
+	}).click(() => {
+		carouselPause();
+		TurnNext(false);
+	});
 
 	TurnTo(carouselInfo.curSlide, carouselInfo);
 	carouselPlay();
 
 	$(carouselInfo.carouselTarget + " ." + statusField).text("");
 
-	$(carouselInfo.carouselTarget + " .playPause").css({
-		"opacity": "0"
-	});
 	hoverEffect(carouselInfo.carouselTarget,
 		() => {
-			$(carouselInfo.carouselTarget + " .playPause").css({
+			$(carouselInfo.carouselTarget + " .leaveHide").css({
 				"opacity": "1"
 			});
 		},
 		() => {
-			$(carouselInfo.carouselTarget + " .playPause").css({
+			$(carouselInfo.carouselTarget + " .leaveHide").css({
 				"opacity": "0"
+			});
+		});
+
+	hoverEffect(carouselInfo.carouselTarget + " .playPause",
+		() => {
+			$(carouselInfo.carouselTarget + " .playPause").css({
+				"background-color": "#e0e0e0"
+			});
+		},
+		() => {
+			$(carouselInfo.carouselTarget + " .playPause").css({
+				"background-color": "#ffffff"
 			});
 		});
 }
@@ -363,8 +416,8 @@ function buttonsBuild() {
 
 var buttonClassName = "button";
 
-var size = "30px";
-var sizeSmall = "18px";
+var size = "42px";
+var sizeSmall = "30px";
 
 var fontSize = "25px";
 var fontSizeSmall = "12.5px";
@@ -380,12 +433,9 @@ $(() => {
 		"border-radius": "50%",
 		"background-color": bgColor,
 		"color": color,
-		//"border": borderInfo,
 		"display": "inline-block",
 		"text-align": "center",
-		//"transition": "all 0.3s",
 		"font-size": fontSize,
-		"position": "relative",
 		"cursor": "pointer",
 		"box-shadow": "0 0 3px"
 	});
@@ -408,18 +458,6 @@ $(() => {
 				"font-size": fontSize
 			});
 	});
-
-	hoverEffect("." + buttonClassName,
-		() => {
-			$("." + buttonClassName).css({
-				"box-shadow": "0 0 8px"
-			});
-		},
-		() => {
-			$("." + buttonClassName).css({
-				"box-shadow": "0 0 3px"
-			});
-		});
 });
 
 function hoverEffect(hoverTarget, mouseonAction, mouseleaveAction) {
@@ -427,23 +465,10 @@ function hoverEffect(hoverTarget, mouseonAction, mouseleaveAction) {
 	$(hoverTarget).mouseleave(mouseleaveAction);
 }
 
-///////////////////////////////////////
-/*
-$(() => {
-	$("." + buttonClassName).css({
-		"opacity": "0"
-	});
-});*/
-
-/////////////////////////////
-
 function carouselPlay() {
 	$(carouselInfo.carouselTarget + " .playPause").css({
-		"background-image": "url(images/pause.png)",
-		"background-size": "cover",
-		"background-position": "center"
-	})
-		.text("| |");
+		"background-image": "url(../images/pause.png)"
+	});
 
 	internalEventReference = setInterval(() => {
 		TurnNext();
@@ -456,11 +481,8 @@ function carouselPlay() {
 
 function carouselPause() {
 	$(carouselInfo.carouselTarget + " .playPause").css({
-		"background-image": "url(images/start.png)",
-		"background-size": "cover",
-		"background-position": "center"
-	})
-		.text("▶");
+		"background-image": "url(../images/start.png)"
+	});
 	clearInterval(internalEventReference);
 	internalEventReference = null;
 	$(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css({
@@ -514,4 +536,12 @@ function checklearnMore() {
 		$(carouselInfo.carouselTarget + " .slideAnchor").css("display", "none");
 	else
 		$(carouselInfo.carouselTarget + " .slideAnchor").css("display", "inline-block");
+}
+
+function timesOfWidth(times, offset = 0) {
+	return parseFloat(carouselInfo.curWidth) * times + offset + SliceToUnit(carouselInfo.curWidth);
+}
+
+function timesOfHeight(times, offset = 0) {
+	return parseFloat(carouselInfo.curHeight) * times + offset + SliceToUnit(carouselInfo.curHeight);
 }

@@ -1,5 +1,5 @@
-﻿//カルーセル（バージョン：2.0） 日本語
-//Carousel v2.0 Japanese
+﻿//カルーセル（バージョン：2.1） 日本語
+//Carousel v2.1 Japanese
 
 
 initializing = "初期化中．．．";
