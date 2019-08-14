@@ -1,15 +1,13 @@
 # Carousel
 <h4>This repository contains script for making an HTML carousel.</h4>
 <br>
-<p>The Carousel version 2.0 has finally come!</p>
-<p>The algorithm has been changed to adapt to some testing features.</p>
+<p>The Carousel version 2.1 has come!</p>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natural.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
 <br>
-<p>The play/pause button is now on open test.</p>
-<p>"Learn more" button has been moved into hyper-text board.</p>
+<p>The appearance of play/pause switch has been optimized.</p>
+<p>New buttons have been added.</p>
 <p><b>The LTS(long-term service) edition has come for online raw importers.</b></p>
-<br>
 <p><i>The min edition has come.</i></p>
 <br>
 <p>The update is coming. Thanks for your support!</p>
