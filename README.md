@@ -4,6 +4,7 @@
 <p>The Carousel version 2.1 has come!</p>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natural.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
+<p>Progress bars have been optimized at the version 2.1.1.</p>
 <br>
 <p>The appearance of play/pause switch has been optimized.</p>
 <p>New buttons have been added.</p>
