@@ -1,53 +1,53 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="zh-cn">
 <head>
-	<meta charset="utf-8" />
-	<title>Demo Site</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>示范页面 - 活力之城——青岛</title>
+	
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" /><!--bootstrap-->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap-grid.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap-reboot.min.css" />
 
-	<script src="jquery-3.4.1.min.js"></script><!--	jQuery	-->
+	<link type="text/css" rel="stylesheet" href="css/demoStyle.css" />
+	
+	<script src="js/jquery-3.4.1.min.js"></script><!--jQuery-->
+	<script src="js/popper.min.js"></script><!--popper-->
+	<script src="js/bootstrap.min.js"></script><!--bootstrap-->
+	<script src="js/bootstrap.bundle.min.js"></script>
+
 	<script src="../Carousel_2.1.js"></script>
-
-	<style type="text/css">
-		
-		.discription{
-			background-color: rgb(170, 48, 229);
-			color: rgb(255, 255, 255);
-			display: inline-block;
-			padding: 1%;
-			font-family: Arial;
-			transition: all 0.3s;
-		}
-	</style>
+	<script src="../lang/Carousel_cn-si.js"></script>
 </head>
 <body>
-	<div class="discription">
-		<label>Demo Site</label>
-		<h3>The Landscape in Qingdao</h3>
-	</div>
-	<div id="Slide"></div>
+	<div id="bannerCarousel"></div>
 	<script type="text/javascript">
-
-		//		  TARGET   WIDTH   HEIGHT
-		carouselRun("#Slide", "60%", "450px", [	//IMAGES
-			"Demo_imgs/InternChina-Qingdao-coast-at-night.jpg",
-			"Demo_imgs/Qingdao-China.jpg",
-			"Demo_imgs/a191fb_f9d0d32934a341138b3f439df2e17261.jpg_srz_1532_1021_85_22_0.50_1.20_0.jfif.jpg",
-			"Demo_imgs/b083fe955a7417b503fd01.jpg",
-			"Demo_imgs/qingdao03.jpg"
-		], [	//LINKS
-			"#",
-			"Demo_imgs/Qingdao-China.jpg",
-			"#",
-			"Demo_imgs/b083fe955a7417b503fd01.jpg",
-			"Demo_imgs/qingdao03.jpg"
-			],
+		carouselRun("#bannerCarousel", "80%", "550px", [
+			"images/qd1.jpg",
+			"images/qd2.jpg",
+			"images/qd3.jpg",
+			"images/qd4.jpg",
+			"images/qd5.jpg",
+			"images/qd6.jpg",
+			"images/qd7.jpg"
+		],
 			[
-				"<label>Demo Site</label><h1>The landscape in Qingdao</h1>",
-				"<h1>The landscape in Qingdao</h1><h2>May 4th Square</h2>",
+				"images/qd1.jpg",
+				"images/qd2.jpg",
+				"#",
+				"images/qd4.jpg",
+				"images/qd5.jpg",
+				"images/qd6.jpg",
+				"#"
+			], [
+				"<label>活力青岛</label><h1>五四广场</h1><h2>May 4th Square</h2>",
 				"",
 				"",
-				"May 4th Square"
+				"<h1>基督教堂</h1><h2>Christian Church in Qingdao</h2>",
+				"<h1>奥帆中心</h1><h2>Olympic Sailing Center</h2>",
+				"<h1>栈桥</h1><h2>Landing Stage</h2>",
+				"一起来探索青岛的魅力吧！",
 			]);
 	</script>
 </body>

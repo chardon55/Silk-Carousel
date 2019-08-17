@@ -1,20 +1,17 @@
 ﻿/*                          Carousel                        *
- *  Version: 2.1.1                                          *
+ *  Version: 2.1.2                                          *
  *  Created by: dy55                                        *
  *  Created date: Aug. 3, 2019                              */
 
-var defaultWidth = "60%";
-var defaultHeight = "450px";
+const defaultWidth = "60%";
+const defaultHeight = "450px";
 
-var pauseTime = 500;
-var slideInterval = 5000 + pauseTime;
+const pauseTime = 500;
+const slideInterval = 5000 + pauseTime;
 
 var initializing = "Initializing...";
 var noImage = "No Image";
 var learnMore = "Learn more";
-
-//var webkitPara = 70;
-//var thisBrowserPara = window.outerHeight - window.innerHeight;
 
 var internalEventReference;
 
@@ -25,7 +22,7 @@ $(() => {
 });
 
 
-function carouselRun(_target, width, height, imageSrcs, anchorHrefs, htBoardTexts = new Array(), _outline = true, playToggleBtn = true) {
+function carouselRun(_target, width, height, imageSrcs, anchorHrefs = new Array(), htBoardTexts = new Array(), _outline = true, playToggleBtn = true) {
 
 	carouselInfo = {
 		carouselTarget: _target,
@@ -51,7 +48,6 @@ function carouselRun(_target, width, height, imageSrcs, anchorHrefs, htBoardText
 
 	FormatSet();
 	ProgressBarSetPut();
-	//buttonsBuild();
 	Init();
 
 	////
@@ -130,15 +126,14 @@ function Init() {
 		"transition": "all 0.3s"
 	});
 
-	hoverEffect(carouselInfo.carouselTarget + " .slideAnchor",
-		() => {
-			$(carouselInfo.carouselTarget + " .slideAnchor").css({
-				"text-decoration": "underline"
-			});
-			$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
-				"transform": "translateX(5px)"
-			});
-		},
+	$(carouselInfo.carouselTarget + " .slideAnchor").hover(() => {
+		$(carouselInfo.carouselTarget + " .slideAnchor").css({
+			"text-decoration": "underline"
+		});
+		$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
+			"transform": "translateX(5px)"
+		});
+	},
 		() => {
 			$(carouselInfo.carouselTarget + " .slideAnchor").css({
 				"text-decoration": "none"
@@ -147,7 +142,6 @@ function Init() {
 				"transform": "translateX(0px)"
 			});
 		});
-
 
 	$(carouselInfo.carouselTarget + " .playPause").css({
 		"display": () => {
@@ -177,8 +171,8 @@ function Init() {
 
 	$(carouselInfo.carouselTarget + " .htBoard").css({
 		"background-color": "rgba(0, 0, 0, 0.3)",
-		"min-height": "20px",
-		"width": "90%"
+		"width": "90%",
+		"padding-left": "2%"
 	});
 
 	$(carouselInfo.carouselTarget + " .turnBtn").css({
@@ -213,25 +207,22 @@ function Init() {
 	carouselPlay();
 
 	$(carouselInfo.carouselTarget + " ." + statusField).text("");
-
-	hoverEffect(carouselInfo.carouselTarget,
-		() => {
-			$(carouselInfo.carouselTarget + " .leaveHide").css({
-				"opacity": "1"
-			});
-		},
+	$(carouselInfo.carouselTarget).hover(() => {
+		$(carouselInfo.carouselTarget + " .leaveHide").css({
+			"opacity": "1"
+		});
+	},
 		() => {
 			$(carouselInfo.carouselTarget + " .leaveHide").css({
 				"opacity": "0"
 			});
 		});
 
-	hoverEffect(carouselInfo.carouselTarget + " .playPause",
-		() => {
-			$(carouselInfo.carouselTarget + " .playPause").css({
-				"background-color": "#e0e0e0"
-			});
-		},
+	$(carouselInfo.carouselTarget + " .playPause").hover(() => {
+		$(carouselInfo.carouselTarget + " .playPause").css({
+			"background-color": "#e0e0e0"
+		});
+	},
 		() => {
 			$(carouselInfo.carouselTarget + " .playPause").css({
 				"background-color": "#ffffff"
@@ -338,8 +329,6 @@ function barBuild() {
 
 ///////////////////////////////////////
 
-var firstTime = true;
-
 function barReset(transitionBar = true) {
 
 	$(() => {
@@ -357,30 +346,6 @@ function barReset(transitionBar = true) {
 					return "none";
 			}
 		});
-
-		if (firstTime) {
-			if (!isEdge()) {
-				////Transition Effect Adjustment Buffer
-				var offsetTime = 0;
-				while ($(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css("transition") != "all " + (slideInterval - offsetTime) + "ms linear"
-					&&
-					offsetTime < slideInterval) {
-					setTimeout(() => {
-
-						$(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css({
-							"transition": "all " + (slideInterval - offsetTime - pauseTime) + "ms linear"
-						});
-
-					}, offsetTime += 200)
-				}
-				delete offsetTime;
-				////
-			}
-			else {
-				
-			}
-			firstTime = false;
-		}
 
 		$(carouselInfo.carouselTarget + " .bar" + (carouselInfo.curSlide - 1) + " > div").css({
 			"width": "100%"
@@ -454,11 +419,6 @@ $(() => {
 			});
 	});
 });
-
-function hoverEffect(hoverTarget, mouseonAction, mouseleaveAction) {
-	$(hoverTarget).mouseover(mouseonAction);
-	$(hoverTarget).mouseleave(mouseleaveAction);
-}
 
 function carouselPlay() {
 	$(carouselInfo.carouselTarget + " .playPause").css({
