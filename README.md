@@ -1,31 +1,34 @@
 # Carousel
-<h4>This repository contains script for making an HTML carousel.</h4>
-<br>
-<p>The Carousel version 2.1 has come!</p>
+<h2>Intro & Features</h2>
+<p>The Carousel 2.1 has come!</p>
 <p>Lambda Expressions are used in new version's code to make it more fluent and natural.</p>
 <p>The method for it to define width and height has changed, which supports responsive interface.</p>
-<p>Progress bars have been optimized at the version 2.1.1.</p>
-<br>
-<p>The appearance of play/pause switch has been optimized.</p>
-<p>New buttons have been added.</p>
 <p><b>The LTS(long-term service) edition has come for online raw importers.</b></p>
 <p><i>The min edition has come.</i></p>
-<br>
-<p>The update is coming. Thanks for your support!</p>
-
 <hr>
-<h2>Tips to use it:</h2>
+
+<h2>Update version 2.1.1</h2>
+<p>Progress bars have been optimized since the version 2.1.1.</p>
+<p>The appearance of play/pause switch has been optimized.</p>
+<p>New buttons have been added.</p>
+<h2>Update version 2.1.2</h2>
+<p>The source code has been optimized.</p>
+<p>The margin of the text at ht-board has been optimized.</p>
+<p>The new demo site has been up for test.</p>
+<hr>
+<p>The updates are coming. Thanks for your support!</p>
+<hr>
+
+<h2>Tips how to use it:</h2>
 <ul>
   <li>Make sure your HTML file has imported jQuery, because the script needs it</li>
-  <li>You can change how many elements in the arrays are, because the script will adjust the banner depending on it</li>
+  <li>You can view the demo site to learn how to use it.</li>
   <li>The demo code about how to use it as follow.</li>
-  <li>You can view the demo site to learn the example about how to use it.</li>
 </ul>
 
 <h3>Basic Use Demo</h3>
 <code>
 
-	//	The number of the element in the array can be changed
 	//		  TARGET   WIDTH   HEIGHT
 	carouselRun("#Slide", "60%", "450px", [	//IMAGES
 		"Demo_imgs/InternChina-Qingdao-coast-at-night.jpg",
