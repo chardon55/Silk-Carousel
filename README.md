@@ -42,8 +42,7 @@ The program is written in JavaScript and CSS.
   - You can view the demo site to learn how to use it.
   - The demo code about how to use it as follow.
 
-###Basic Use Demo
-
+**Basic Use Demo**
 	
 	//		  TARGET   WIDTH   HEIGHT
 	carouselRun("#Slide", "60%", "450px", [	//IMAGES
