@@ -1,0 +1,136 @@
+/*	Carousel StyleSheet
+ *	Version: v2.2
+ *	<> by dy55
+ *	Created date: Aug.21 2019 (v2.2)
+ */
+
+.statusField{
+	position: absolute;
+	color: #ff0000;
+	z-index: 0;
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.hText{
+	color: #ffffff;
+	padding: 1%;
+}
+
+.leaveHide{
+	opacity: 0;
+}
+
+.slideAnchor{
+	padding: 1%;
+	text-align: center;
+	color: #ffffff;
+	position: relative;
+	transition: all 0.3s;
+	text-decoration: none;
+	margin-top: 1%;
+}
+.slideAnchor:hover{
+	text-decoration: underline;
+	color: #ffffff;
+}
+.slideAnchor:hover > .rightArrowLearnMore{
+	transform: translate(5px);
+}
+
+.rightArrowLearnMore{
+	position: relative;
+	margin-left: 5px;
+	display: inline-block;
+	transition: all 0.3s;
+}
+
+.playPause{
+	width: 50px;
+	height: 35px;
+	transition: all 0.7s;
+	cursor: pointer;
+	position: absolute;
+	box-shadow: 1px 0 6px #000000;
+	background: center no-repeat #ffffff;
+	background-size: 32%;
+	border-radius: 0 17.5px 17.5px 0;
+	z-index: 2;
+}
+.playPause:hover{
+	background: center no-repeat #d0d0d0;
+	background-size: 32%;
+}
+
+.htBoard{
+	width: 90%;
+	padding-left: 2%;
+	font-family: Calibri, DengXian, 'HGGothicM';
+}
+
+/**************************************/
+.turnBtn{
+	background: no-repeat center;
+	background-size: cover;
+}
+.turnBtn:hover{
+	background-color: #d0d0d0;
+}
+
+.btnPrev{
+	float: left;
+	background-image: url(images/prev.png);
+}
+
+
+.btnNext{
+	float: right;
+	background-image: url(images/prev.png);
+	transform: rotate(180deg);
+}
+
+/*Progress bar Set*/
+.barSet{
+	height: 3%;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	cursor: pointer;
+}
+
+/*Progress bar embedded*/
+.progressBar{
+	position: relative;
+	height: 100%;
+	display: inline-block;
+
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.progressBar > div{
+	background-color: #ffffff;
+	position: relative;
+	height: 100%;
+	width: 0;
+	z-index: 2;
+}
+
+.button{
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	color: #000000;
+	display: inline-block;
+	text-align: center;
+	font-size: 25px;
+	cursor: pointer;
+	box-shadow: 0 0 3px;
+}
+
+@media only screen and (max-width: 800px){
+	.button{
+		width: 30px;
+		height: 30px;
+		font-size: 25px;
+	}
+}

@@ -1,5 +1,5 @@
-﻿//회전 목마 (버전 : 2.1) 한국어
-//Carousel v2.1 Korean
+﻿//회전 목마 (버전 : 2.2) 한국어
+//Carousel v2.2 Korean
 
 
 initializing = "초기화 중 ...";

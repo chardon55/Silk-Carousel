@@ -1,7 +1,7 @@
 ﻿/*                          Carousel                        *
- *  Version: 2.1.2                                          *
+ *  Version: 2.2.0                                          *
  *  Created by: dy55                                        *
- *  Created date: Aug. 3, 2019                              */
+ *  Created date: Aug. 3, 2019 (v2.0)                       */
 
 const defaultWidth = "60%";
 const defaultHeight = "450px";
@@ -15,14 +15,11 @@ var learnMore = "Learn more";
 
 var internalEventReference;
 
-var carouselInfo;
+var carouselInfo = new Object;
 
-$(() => {
-
-});
-
-
-function carouselRun(_target, width, height, imageSrcs, anchorHrefs = new Array(), htBoardTexts = new Array(), _outline = true, playToggleBtn = true) {
+function carouselRun(_target, width, height, imageSrcs, anchorHrefs = new Array(),
+	htBoardTexts = new Array(), _outline = true, playToggleBtn = true, mouseLeaveHideBtn = true, buttonsFilter = new Array(),
+	htBoardFilter = new Array(), htBoardBackground = true) {
 
 	carouselInfo = {
 		carouselTarget: _target,
@@ -33,7 +30,11 @@ function carouselRun(_target, width, height, imageSrcs, anchorHrefs = new Array(
 		anchorArray: anchorHrefs,
 		htBoard: htBoardTexts,
 		outline: _outline,
-		playButton: playToggleBtn
+		playButton: playToggleBtn,
+		filter: buttonsFilter,
+		filterhtb: htBoardFilter,
+		htBg: htBoardBackground,
+		leaveHide: mouseLeaveHideBtn
 	}
 
 	if (width == null)
@@ -71,77 +72,36 @@ function FormatSet() {
 }
 
 
-var statusField = "statusField";
+const statusField = "statusField"; //Do NOT edit it.
 
 function Init() {
 
 	$(carouselInfo.carouselTarget).prepend("<span class='" + statusField + "'></span>");
-	$(carouselInfo.carouselTarget + " ." + statusField).text(initializing)
-		.css({
-			"position": "absolute",
-			"color": "#ff0000",
-			"z-index": "0",
-			"font-weight": "bold",
-			"font-size": "120%"
-		});
+	$(carouselInfo.carouselTarget + " ." + statusField).text(initializing);
 
-	var rightArrowLearnMore = "rightArrowLearnMore";
+	const rightArrowLearnMore = "rightArrowLearnMore"; //Do NOT edit it.
 
-	$(carouselInfo.carouselTarget).prepend("<div class='infoBoard'></div><div class='playPause leaveHide'></div><div class='" + buttonClassName + " turnBtn btnPrev leaveHide'></div><div class='" + buttonClassName + " turnBtn btnNext leaveHide'></div>");
+	$(carouselInfo.carouselTarget).prepend("<div class='infoBoard'></div><div class='playPause'></div><div class='" + buttonClassName + " turnBtn btnPrev'></div><div class='" + buttonClassName + " turnBtn btnNext'></div>");
 	$(carouselInfo.carouselTarget + " .infoBoard").prepend("<div class='htBoard'></div>");
+	if (carouselInfo.leaveHide)
+		$(carouselInfo.carouselTarget + " .playPause, " + carouselInfo.carouselTarget + " .turnBtn").addClass("leaveHide");
 
-	$(carouselInfo.carouselTarget + " .htBoard").append("<a class='slideAnchor'>" + learnMore + "<span class='" + rightArrowLearnMore + "'>></span></a>")
+	$(carouselInfo.carouselTarget + " .htBoard")
+		.append("<a class='slideAnchor'>" + learnMore + "<span class='" + rightArrowLearnMore + "'>></span></a>")
 		.prepend("<div class='hText'></div>")
 		.css({
-			"color": "white",
-			"padding": "1%",
-			"font-family": "Calibri, DengXian, 'HGGothicM'"
-		});
-
-
-	$(carouselInfo.carouselTarget + " .leaveHide").css({
-		"opacity": "0"
+		"background-color": () => {
+			if (carouselInfo.htBg)
+				return "rgba(0, 0, 0, 0.3)";
+			else
+				return "none";
+		}
 	});
-
-	var anchorColor = "white";
 
 	$(carouselInfo.carouselTarget + " .infoBoard").css({
 		"position": "absolute",
 		"width": carouselInfo.curWidth
 	});
-
-	$(carouselInfo.carouselTarget + " .slideAnchor").css({
-		"padding": "1%",
-		"text-align": "center",
-		"color": anchorColor,
-		"position": "relative",
-		"transition": "all 0.3s",
-		"text-decoration": "none",
-		"margin-top": "1%"
-	});
-	$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
-		"position": "relative",
-		"margin-left": "5px",
-		"display": "inline-block",
-		"transition": "all 0.3s"
-	});
-
-	$(carouselInfo.carouselTarget + " .slideAnchor").hover(() => {
-		$(carouselInfo.carouselTarget + " .slideAnchor").css({
-			"text-decoration": "underline"
-		});
-		$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
-			"transform": "translateX(5px)"
-		});
-	},
-		() => {
-			$(carouselInfo.carouselTarget + " .slideAnchor").css({
-				"text-decoration": "none"
-			});
-			$(carouselInfo.carouselTarget + " ." + rightArrowLearnMore).css({
-				"transform": "translateX(0px)"
-			});
-		});
 
 	$(carouselInfo.carouselTarget + " .playPause").css({
 		"display": () => {
@@ -150,55 +110,23 @@ function Init() {
 			else
 				return "none";
 		},
-		"margin-top": "1%",
-		"width": "50px",
-		"height": "35px",
-		"transition": "all 0.3s",
-		"cursor": "pointer",
-		"background-color": "#ffffff",
-		"position": "absolute",
-		"margin-top": parseFloat(carouselInfo.curHeight) * 3 / 4 + SliceToUnit(carouselInfo.curHeight),
-		"box-shadow": "1px 0 6px black",
-		"background-size": "32%",
-		"background-position": "center",
-		"background-repeat": "no-repeat",
-		"border-radius": "0 17.5px 17.5px 0",
-		"z-index": "2"
+		"margin-top": parseFloat(carouselInfo.curHeight) * 3 / 4 + SliceToUnit(carouselInfo.curHeight)
 	})
 		.click(() => {
 			carouselPlayToggle();
 		});
-
-	$(carouselInfo.carouselTarget + " .htBoard").css({
-		"background-color": "rgba(0, 0, 0, 0.3)",
-		"width": "90%",
-		"padding-left": "2%"
-	});
 
 	$(carouselInfo.carouselTarget + " .turnBtn").css({
 		"margin-top": timesOfHeight(0.49),
 		"z-index": "2"
 	});
 
-	$(carouselInfo.carouselTarget + " .btnPrev").css({
-		"float": "left",
-		"background-image": "url(../images/prev.png)",
-		"background-size": "cover",
-		"background-repeat": "no-repeat",
-		"background-position": "center"
-	}).click(() => {
+	$(carouselInfo.carouselTarget + " .btnPrev").click(() => {
 		carouselPause();
 		TurnPrev(false);
 	});
 
-	$(carouselInfo.carouselTarget + " .btnNext").css({
-		"float": "right",
-		"background-image": "url(../images/prev.png)",
-		"transform": "rotate(180deg)",
-		"background-size": "cover",
-		"background-repeat": "no-repeat",
-		"background-position": "center"
-	}).click(() => {
+	$(carouselInfo.carouselTarget + " .btnNext").click(() => {
 		carouselPause();
 		TurnNext(false);
 	});
@@ -217,17 +145,6 @@ function Init() {
 				"opacity": "0"
 			});
 		});
-
-	$(carouselInfo.carouselTarget + " .playPause").hover(() => {
-		$(carouselInfo.carouselTarget + " .playPause").css({
-			"background-color": "#e0e0e0"
-		});
-	},
-		() => {
-			$(carouselInfo.carouselTarget + " .playPause").css({
-				"background-color": "#ffffff"
-			});
-		});
 }
 
 function ProgressBarSetPut() {
@@ -243,19 +160,11 @@ function ProgressBarSetPut() {
 	}
 
 	$(carouselInfo.carouselTarget + " > .barSet").css({
-		"height": "3%",
-		"display": "relative",
-		"width": "100%",
-		"margin-top": timesOfHeight(1, -19),
-		"z-index": "1",
-		"cursor": "pointer"
+		"margin-top": timesOfHeight(1, -19)
 	});
 	var gap = 0.25;//%
 	$(carouselInfo.carouselTarget + " ." + barClassName).css({
-		"display": "relative",
-		"height": "100%",
 		"width": 100 / carouselInfo.imageArray.length - gap + "%",
-		"display": "inline-block",
 		"margin-right": gap + "%"
 	});
 }
@@ -273,10 +182,18 @@ function TurnTo(toSlide, transitionBar = true) {
 		$(carouselInfo.carouselTarget).css("background-image", "url(" + carouselInfo.imageArray[toSlide - 1] + ")");
 		$(carouselInfo.carouselTarget + " .slideAnchor").attr("href", carouselInfo.anchorArray[toSlide - 1]);
 
+		if (carouselInfo.filter[carouselInfo.curSlide - 1] != null)
+			$(carouselInfo.carouselTarget + " .playPause, " + carouselInfo.carouselTarget + " .turnBtn").css({
+				"filter": carouselInfo.filter[carouselInfo.curSlide - 1]
+			});
+		if (carouselInfo.filterhtb[carouselInfo.curSlide - 1] != null)
+			$(carouselInfo.carouselTarget + " .htBoard").css({
+				"filter": carouselInfo.filterhtb[carouselInfo.curSlide - 1]
+			});
+
 		checkimgurl();
 		checklearnMore();
 		checkhtText();
-
 
 		setTimeout(() => {
 			barReset(transitionBar);
@@ -302,30 +219,13 @@ function TurnPrev(transitionBar = true) {
 //progress bar embedded v1.1
 //Created by dy55 on Aug. 4, 2019
 
-var barClassName = "progressBar";
+const barClassName = "progressBar"; //Do not edit it.
 
 $(() => {
 
-	barBuild();
-
-});
-
-function barBuild() {
 	$("." + barClassName).html("<div></div>");
 
-	$("." + barClassName).css({
-		"background-color": "rgba(255,255,255,0.4)"
-	});
-
-	$("." + barClassName + " > div").css({
-		"background-color": "#ffffff",
-		"position": "relative",
-		"height": "100%",
-		"width": "0",
-		"z-index": "2"
-	});
-
-}
+});
 
 ///////////////////////////////////////
 
@@ -374,50 +274,25 @@ function buttonsBuild() {
 //Created by: dy55
 //Aug.5 2019
 
-var buttonClassName = "button";
+const buttonClassName = "button";//Do NOT edit it.
 
-var size = "42px";
-var sizeSmall = "30px";
+const size = "42px";
+const sizeSmall = "30px";
 
-var fontSize = "25px";
-var fontSizeSmall = "12.5px";
+const fontSize = "25px";
+const fontSizeSmall = "12.5px";
 
-var bgColor = "#ffffff";
-var color = "#000000";
-var borderInfo = "0.6px black solid";
+const bgColor = "#ffffff";
+const color = "#000000";
+const borderInfo = "0.6px black solid";
 
 $(() => {
-	$("." + buttonClassName).css({
-		"width": size,
-		"height": size,
-		"border-radius": "50%",
-		"background-color": bgColor,
-		"color": color,
-		"display": "inline-block",
-		"text-align": "center",
-		"font-size": fontSize,
-		"cursor": "pointer",
-		"box-shadow": "0 0 3px"
-	});
 
+	//Buffer
 	setTimeout(() => {
 		$("." + buttonClassName).css("transition", "all 0.3s");
 	}, 10);
 
-	addEventListener("resize", () => {
-		if (window.innerWidth < 800 && $("." + buttonClassName).css("width") == size)
-			$("." + buttonClassName).css({
-				"width": sizeSmall,
-				"height": sizeSmall,
-				"font-size": fontSizeSmall
-			});
-		else if (window.innerWidth >= 800 && $("." + buttonClassName).css("width") == sizeSmall)
-			$("." + buttonClassName).css({
-				"width": size,
-				"height": size,
-				"font-size": fontSize
-			});
-	});
 });
 
 function carouselPlay() {
