@@ -61,7 +61,7 @@ The program is written in JavaScript and CSS.
 	]);
 
 	//function overview
-	carouselRun(target, width, height, images_array, [links_array], 		[hyper-text_board_content_array],[display_outline], [display_play/pause_button], [mouse_leave_to_hide_btn], [buttons'_filter], [hyper-text_board_filter], [display_hyper-text_board's_background]);
+	carouselRun(target, width, height, images_array, [links_array], [hyper-text_board_content_array],[display_outline], [display_play/pause_button], [mouse_leave_to_hide_btn], [buttons'_filter], [hyper-text_board_filter], [display_hyper-text_board's_background]);
 
 ---
 
