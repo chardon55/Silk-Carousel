@@ -1,5 +1,5 @@
 ﻿/*                          Carousel                        *
- *  Version: 2.2.0                                          *
+ *  Version: 2.3.0                                          *
  *  Created by: dy55                                        *
  *  Created date: Aug. 3, 2019 (v2.0)                       */
 
@@ -17,12 +17,22 @@ var internalEventReference;
 
 var carouselInfo = new Object;
 
-function carouselRun(_target, width, height, imageSrcs, anchorHrefs = new Array(),
-	htBoardTexts = new Array(), _outline = true, playToggleBtn = true, mouseLeaveHideBtn = true, buttonsFilter = new Array(),
-	htBoardFilter = new Array(), htBoardBackground = true) {
+var usedTheme;
+
+var lang = "en";
+//If you would like more local language code, just modify it directly.
+//(if there exists the language file in your language at "lang" folder, please ingore it.)
+
+function carouselRun(_targetPlusTheme, width, height, imageSrcs, anchorHrefs = new Array(),
+	htBoardTexts = new Array(), _outline = true, playToggleBtn = true, mouseLeaveHideBtn = true,
+	buttonsFilter = new Array(), htBoardFilter = new Array(), htBoardBackground = true,
+	customLearnMoreContent = new Array()) {
+
+	var tptArray = sliceTargetPlusTheme(_targetPlusTheme);
+	usedTheme = tptArray[1];
 
 	carouselInfo = {
-		carouselTarget: _target,
+		carouselTarget: tptArray[0],
 		curWidth: new String(),
 		curHeight: new String(),
 		curSlide: 1,
@@ -34,7 +44,8 @@ function carouselRun(_target, width, height, imageSrcs, anchorHrefs = new Array(
 		filter: buttonsFilter,
 		filterhtb: htBoardFilter,
 		htBg: htBoardBackground,
-		leaveHide: mouseLeaveHideBtn
+		leaveHide: mouseLeaveHideBtn,
+		customLearnMore: customLearnMoreContent
 	}
 
 	if (width == null)
@@ -47,7 +58,10 @@ function carouselRun(_target, width, height, imageSrcs, anchorHrefs = new Array(
 		carouselInfo.curHeight = height;
 	////
 
+	//$(carousel.carouselTarget).attr("lang", lang);
+
 	FormatSet();
+	localeCheck();
 	ProgressBarSetPut();
 	Init();
 
@@ -69,6 +83,10 @@ function FormatSet() {
 				return "none";
 		}
 	});
+
+	if (usedTheme != "")
+		$(carouselInfo.carouselTarget).addClass(usedTheme);
+	
 }
 
 
@@ -87,7 +105,7 @@ function Init() {
 		$(carouselInfo.carouselTarget + " .playPause, " + carouselInfo.carouselTarget + " .turnBtn").addClass("leaveHide");
 
 	$(carouselInfo.carouselTarget + " .htBoard")
-		.append("<a class='slideAnchor'>" + learnMore + "<span class='" + rightArrowLearnMore + "'>></span></a>")
+		.append("<a class='slideAnchor'><span class='learnmorespan'>" + learnMore + "</span><span class='" + rightArrowLearnMore + "'>></span></a>")
 		.prepend("<div class='hText'></div>")
 		.css({
 		"background-color": () => {
@@ -194,6 +212,7 @@ function TurnTo(toSlide, transitionBar = true) {
 		checkimgurl();
 		checklearnMore();
 		checkhtText();
+		setCustomLabel();
 
 		setTimeout(() => {
 			barReset(transitionBar);
@@ -286,18 +305,12 @@ const bgColor = "#ffffff";
 const color = "#000000";
 const borderInfo = "0.6px black solid";
 
-$(() => {
-
-	//Buffer
-	setTimeout(() => {
-		$("." + buttonClassName).css("transition", "all 0.3s");
-	}, 10);
-
-});
+var pauseimgUrl = "url(../images/pause.png)";
+var playimgUrl = "url(../images/start.png)";
 
 function carouselPlay() {
 	$(carouselInfo.carouselTarget + " .playPause").css({
-		"background-image": "url(../images/pause.png)"
+		"background-image": pauseimgUrl
 	});
 
 	internalEventReference = setInterval(() => {
@@ -311,7 +324,7 @@ function carouselPlay() {
 
 function carouselPause() {
 	$(carouselInfo.carouselTarget + " .playPause").css({
-		"background-image": "url(../images/start.png)"
+		"background-image": playimgUrl
 	});
 	clearInterval(internalEventReference);
 	internalEventReference = null;
@@ -374,4 +387,51 @@ function timesOfWidth(times, offset = 0) {
 
 function timesOfHeight(times, offset = 0) {
 	return parseFloat(carouselInfo.curHeight) * times + offset + SliceToUnit(carouselInfo.curHeight);
+}
+
+function setCustomLabel() {
+
+	const lmtext = carouselInfo.customLearnMore[carouselInfo.curSlide - 1];
+
+	if (lmtext != null && lmtext != "")
+		$(carouselInfo.carouselTarget + " .learnmorespan").html(lmtext);
+	else
+		$(carouselInfo.carouselTarget + " .learnmorespan").html(learnMore);
+
+}
+
+//////////////////	Theme Editor v1.0	//////////////////
+
+function sliceTargetPlusTheme(str) {
+	const strTrim = str.trim();
+	var i;
+	var found = false;
+	for (i = 0; i < strTrim.length; i++)
+		if (strTrim[i] == "+") {
+			found = true;
+			break;
+		}
+	if(found)
+		return [
+			strTrim.substring(0, i - 1).trim(),
+			strTrim.substring(i + 1).trim()
+		];
+
+	return [
+		strTrim.trim(),
+		""
+	];
+}
+	
+function themeClassNameAdj(str){
+	if(str[0] == ".")
+		return str.substring(1);
+	return str;
+}
+
+///////////////////////////////////////////////////////
+
+function localeCheck() {
+	if ($("html").attr("lang") != lang)
+		$(carouselInfo.carouselTarget).attr("lang", lang);
 }

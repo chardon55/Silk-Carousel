@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\css",
     "\\Demo",
     "\\Demo\\css",
     "\\images",
-    "\\lang"
+    "\\js",
+    "\\locale"
   ],
-  "SelectedNode": "\\Carousel_2.2.css",
+  "SelectedNode": "\\css\\Carousel_2.3.css",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,201 @@
+/*	Carousel StyleSheet
+ *	Version: v2.3
+ *	<> by dy55
+ *	Created date: Aug.21 2019 (v2.2)
+ */
+
+.statusField{
+	position: absolute;
+	color: #ff0000;
+	z-index: 0;
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.hText{
+	color: #ffffff;
+	padding: 1%;
+}
+
+.leaveHide{
+	opacity: 0;
+}
+
+.slideAnchor{
+	padding: 1%;
+	text-align: center;
+	color: #ffffff;
+	position: relative;
+	transition: all 0.3s;
+	text-decoration: none;
+	margin-top: 1%;
+}
+.slideAnchor:hover{
+	text-decoration: underline;
+	color: #ffffff;
+}
+.slideAnchor:hover > .rightArrowLearnMore{
+	transform: translate(5px);
+}
+
+.rightArrowLearnMore{
+	position: relative;
+	margin-left: 5px;
+	display: inline-block;
+	transition: all 0.3s;
+}
+
+.playPause{
+	width: 50px;
+	height: 35px;
+	transition: all 0.7s;
+	cursor: pointer;
+	position: absolute;
+	box-shadow: 1px 0 6px #000000;
+	background: center no-repeat #ffffff;
+	background-size: 32%;
+	border-radius: 0 17.5px 17.5px 0;
+	z-index: 2;
+}
+.playPause:hover{
+	background: center no-repeat #d0d0d0;
+	background-size: 32%;
+}
+
+.htBoard{
+	width: 90%;
+	padding-left: 2%;
+	font-family: Calibri, DengXian, 'Yu Gothic UI', 'Malgun Gothic';
+}
+.htBoard *{
+	color: #ffffff;
+}
+
+/*Languages*/
+.htBoard:lang(zh-cn) {	/*Simplified Chinese*/
+	font-family: DengXian;
+}
+.htBoard:lang(zh-mo), .htBoard:lang(zh-hk), .htBoard:lang(zh-tw){	/*Traditional Chinese*/
+	font-family: 'Microsoft JhengHei UI';
+}
+.htBoard:lang(jp){	/*Japanese*/
+	font-family: 'Yu Gothic UI';
+}
+.htBoard:lang(ko){	/*Korean*/
+	font-family: 'Malgun Gothic';
+}
+
+/**************************************/
+.turnBtn{
+	background: no-repeat center;
+	background-size: cover;
+	transition: all 0.3s;
+}
+.turnBtn:hover{
+	background-color: #d0d0d0;
+}
+
+.btnPrev{
+	float: left;
+	background-image: url(../images/prev.png);
+}
+
+
+.btnNext{
+	float: right;
+	background-image: url(../images/prev.png);
+	transform: rotate(180deg);
+}
+
+/*Progress bar Set*/
+.barSet{
+	height: 3%;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	cursor: pointer;
+}
+
+/*Progress bar embedded*/
+.progressBar{
+	position: relative;
+	height: 100%;
+	display: inline-block;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.progressBar > div{
+	background-color: #ffffff;
+	position: relative;
+	height: 100%;
+	width: 0;
+	z-index: 2;
+}
+
+.button{
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	color: #000000;
+	display: inline-block;
+	text-align: center;
+	font-size: 25px;
+	cursor: pointer;
+	box-shadow: 0 0 3px;
+}
+
+@media only screen and (max-width: 800px){
+	.button{
+		width: 30px;
+		height: 30px;
+		font-size: 25px;
+	}
+}
+
+/*Bundle Themes*/
+
+/*	The Taste of Sky	Created: 2019-8-23	*/
+.the-taste-of-sky{
+	border-radius: 8px;
+	outline: none !important;
+	border: 1px solid rgb(115, 243, 255);
+}
+.the-taste-of-sky *{
+	filter: none !important;
+}
+.the-taste-of-sky .htBoard{
+	background: linear-gradient(rgba(141, 227, 255, 0.70), rgba(29, 162, 201, 0.70));
+	border-radius: 8px;
+}
+.the-taste-of-sky .htBoard{
+	font-family: Cooper, YouYuan,'UD Digi Kyokasho N-B', 'Malgun Gothic';
+}
+.the-taste-of-sky .turnBtn, .the-taste-of-sky .playPause{
+	filter: invert(100%) !important;
+	background-color: rgb(255, 102, 77);	/*Inverted color*/
+}
+.the-taste-of-sky .turnBtn:hover, .the-taste-of-sky .playPause:hover{
+	background-color: rgb(187, 73, 54);	/*Inverted color*/
+}
+.the-taste-of-sky .progressBar{
+	background-color: rgba(108, 196, 231, 0.50);
+	border-radius: 4px;
+}
+.the-taste-of-sky .progressBar > div{
+	background-color: rgba(255, 255, 255, 0.87);
+}
+
+.the-taste-of-sky .htBoard:lang(zh-cn){	/*Simplified Chinese*/
+	font-family: YouYuan;
+}
+.htBoard:lang(zh-mo), .htBoard:lang(zh-hk), .htBoard:lang(zh-tw){	/*Traditional Chinese*/
+	font-family: 'Microsoft JhengHei UI';
+}
+.the-taste-of-sky .htBoard:lang(ja) {	/*Japanese*/
+	font-family: 'UD Digi Kyokasho N-B';
+}
+.the-taste-of-sky .htBoard:lang(ko){	/*Korean*/
+	font-family: 'Malgun Gothic';
+}
+/*************************/
