@@ -38,37 +38,38 @@ The updates are coming. Thanks for your support!
 
 **Basic Use Demo**
 	
-	//               TARGET        THEME-CLASS-NAME   WIDTH   HEIGHT
-	carouselRun("#bannerCarousel + the-taste-of-sky", "76%", "500px", [
+```JavaScript
+//               TARGET        THEME-CLASS-NAME   WIDTH   HEIGHT
+carouselRun("#bannerCarousel + the-taste-of-sky", "76%", "500px", [
+		"images/qd1.jpg",
+		"images/qd2.jpg",
+		"images/qd3.jpg",
+		"images/qd4.jpg",
+		"images/qd5.jpg",
+		"images/qd6.jpg",
+		"images/qd7.jpg"
+	],
+		[
 			"images/qd1.jpg",
 			"images/qd2.jpg",
-			"images/qd3.jpg",
+			"#",
 			"images/qd4.jpg",
 			"images/qd5.jpg",
 			"images/qd6.jpg",
-			"images/qd7.jpg"
-		],
-			[
-				"images/qd1.jpg",
-				"images/qd2.jpg",
-				"#",
-				"images/qd4.jpg",
-				"images/qd5.jpg",
-				"images/qd6.jpg",
-				"#"
-			], [
-				"<label>Brio of Qingdao</label><h2>May 4th Square</h2>",
-				"<h2>The old town in Qingdao</h2>",
-				"<h2>Old German Style House</h2>",
-				"<h2>The Christian Church in Qingdao</h2>",
-				"<h2>Olympic Sailing Center</h2>",
-				"<h2>Landing Stage</h2>",
-				"Let's find the beauty of Qingdao together!",
-			]);
+			"#"
+		], [
+			"<label>Brio of Qingdao</label><h2>May 4th Square</h2>",
+			"<h2>The old town in Qingdao</h2>",
+			"<h2>Old German Style House</h2>",
+			"<h2>The Christian Church in Qingdao</h2>",
+			"<h2>Olympic Sailing Center</h2>",
+			"<h2>Landing Stage</h2>",
+			"Let's find the beauty of Qingdao together!",
+		]);
 
-	//function overview
-	carouselRun(target_+_theme_class_name, width, height, images_array, [links_array], [hyper-text_board_content_array],[display_outline], [display_play/pause_button], [mouse_leave_to_hide_btn], [buttons'_filter], [hyper-text_board_filter], [display_hyper-text_board's_background], [learn_more_content_array]);
-
+//function overview
+carouselRun(target_+_theme_class_name, width, height, images_array, [links_array], [hyper-text_board_content_array],[display_outline], [display_play/pause_button], [mouse_leave_to_hide_btn], [button_s_filter], [hyper-text_board_filter], [display_hyper-text_board_s_background], [learn_more_content_array]);
+```
 ---
 
 ## Previous Updates
