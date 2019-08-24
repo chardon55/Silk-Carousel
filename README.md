@@ -2,11 +2,76 @@
 
 ## Intro & Features
 
-**The Carousel 2.2 has come now!**
+**The Carousel 2.3 is here**
 
 This is a light-weight web app to build a carousel on the website.
 
 The program is written in JavaScript and CSS.
+
+> ### Update version 2.3.0
+>
+> The new carousel 2.3.0 is here!
+>
+> The place displaying "learn more" can be custom.
+>
+> Custom appearance theme is available.
+>
+> A new theme scheme is available.
+>
+> #### Updates for Bundles
+>
+> New demo site has been added.
+
+---
+
+*The min files are created via HookyQR's Minify v0.4.3 for VS Code.*
+
+The updates are coming. Thanks for your support!
+
+---
+
+## Tips:
+
+  - Make sure your HTML file has imported jQuery, because the script needs it
+  - You can view the demo site to learn how to use it.
+  - The demo code about how to use it as follow.
+
+**Basic Use Demo**
+	
+	//               TARGET        THEME-CLASS-NAME   WIDTH   HEIGHT
+	carouselRun("#bannerCarousel + the-taste-of-sky", "76%", "500px", [
+			"images/qd1.jpg",
+			"images/qd2.jpg",
+			"images/qd3.jpg",
+			"images/qd4.jpg",
+			"images/qd5.jpg",
+			"images/qd6.jpg",
+			"images/qd7.jpg"
+		],
+			[
+				"images/qd1.jpg",
+				"images/qd2.jpg",
+				"#",
+				"images/qd4.jpg",
+				"images/qd5.jpg",
+				"images/qd6.jpg",
+				"#"
+			], [
+				"<label>Brio of Qingdao</label><h2>May 4th Square</h2>",
+				"<h2>The old town in Qingdao</h2>",
+				"<h2>Old German Style House</h2>",
+				"<h2>The Christian Church in Qingdao</h2>",
+				"<h2>Olympic Sailing Center</h2>",
+				"<h2>Landing Stage</h2>",
+				"Let's find the beauty of Qingdao together!",
+			]);
+
+	//function overview
+	carouselRun(target_+_theme_class_name, width, height, images_array, [links_array], [hyper-text_board_content_array],[display_outline], [display_play/pause_button], [mouse_leave_to_hide_btn], [buttons'_filter], [hyper-text_board_filter], [display_hyper-text_board's_background], [learn_more_content_array]);
+
+---
+
+## Previous Updates
 
 > ### Update version 2.2.0
 >
@@ -23,48 +88,6 @@ The program is written in JavaScript and CSS.
 > #### Updates for bundles
 >
 > The file README.md now has changed to use markdown syntax instead of HTML one.
-
----
-
-> ### To Developers
->
-> **The LTS(long-term service) edition has come for online raw importers.**
->
-> *The min edition has come.*
->
-> The updates are coming. Thanks for your support!
-
----
-
-## Tips:
-
-  - Make sure your HTML file has imported jQuery, because the script needs it
-  - You can view the demo site to learn how to use it.
-  - The demo code about how to use it as follow.
-
-**Basic Use Demo**
-	
-	//		  TARGET   WIDTH   HEIGHT
-	carouselRun("#Slide", "60%", "450px", [	//IMAGES
-		"Demo_imgs/InternChina-Qingdao-coast-at-night.jpg",
-		"Demo_imgs/Qingdao-China.jpg",
-		"Demo_imgs/a191fb_f9d0d32934a341138b3f439df2e17261.jpg_srz_1532_1021_85_22_0.50_1.20_0.jfif.jpg",
-		"Demo_imgs/b083fe955a7417b503fd01.jpg",
-		"Demo_imgs/qingdao03.jpg"
-	], [	//LINKS
-		"#",
-		"#",
-		"#",
-		"#",
-		"#"
-	]);
-
-	//function overview
-	carouselRun(target, width, height, images_array, [links_array], [hyper-text_board_content_array],[display_outline], [display_play/pause_button], [mouse_leave_to_hide_btn], [buttons'_filter], [hyper-text_board_filter], [display_hyper-text_board's_background]);
-
----
-
-## Previous Updates
 
 > ### Update version 2.1.2
 >
