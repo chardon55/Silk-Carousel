@@ -70,8 +70,6 @@ carouselRun(target_+_theme_class_name, width, height, images_array, [links_array
 
 ## Previous Updates
 
-<details>
-
 > ### Update version 2.3.0
 >
 > The new carousel 2.3.0 is here!
@@ -133,4 +131,3 @@ carouselRun(target_+_theme_class_name, width, height, images_array, [links_array
 > The method for it to define width and height has changed, which supports responsive interface.
 
 *The updates before v2.0 are not been showed.*
-</details>
