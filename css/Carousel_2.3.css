@@ -48,13 +48,13 @@
 .playPause{
 	width: 50px;
 	height: 35px;
-	transition: all 0.7s;
+	transition: opacity 0.5s, background-color 0.3s;
 	cursor: pointer;
 	position: absolute;
 	box-shadow: 1px 0 6px #000000;
 	background: center no-repeat #ffffff;
 	background-size: 32%;
-	border-radius: 0 17.5px 17.5px 0;
+	border-radius: 0 9999px 9999px 0;
 	z-index: 2;
 }
 .playPause:hover{
@@ -86,10 +86,11 @@
 }
 
 /**************************************/
-.turnBtn{
+.turnBtn {
 	background: no-repeat center;
 	background-size: cover;
 	transition: all 0.3s;
+	background-image: url(../images/prev.png);
 }
 .turnBtn:hover{
 	background-color: #d0d0d0;
@@ -97,14 +98,12 @@
 
 .btnPrev{
 	float: left;
-	background-image: url(../images/prev.png);
 }
 
 
 .btnNext{
 	float: right;
-	background-image: url(../images/prev.png);
-	transform: rotate(180deg);
+	transform: rotateY(180deg);
 }
 
 /*Progress bar Set*/
@@ -135,7 +134,7 @@
 .button{
 	width: 42px;
 	height: 42px;
-	border-radius: 50%;
+	border-radius: 9999px;
 	background-color: #ffffff;
 	color: #000000;
 	display: inline-block;
@@ -152,50 +151,3 @@
 		font-size: 25px;
 	}
 }
-
-/*Bundle Themes*/
-
-/*	The Taste of Sky	Created: 2019-8-23	*/
-.the-taste-of-sky{
-	border-radius: 8px;
-	outline: none !important;
-	border: 1px solid rgb(115, 243, 255);
-}
-.the-taste-of-sky *{
-	filter: none !important;
-}
-.the-taste-of-sky .htBoard{
-	background: linear-gradient(rgba(141, 227, 255, 0.70), rgba(29, 162, 201, 0.70));
-	border-radius: 8px;
-}
-.the-taste-of-sky .htBoard{
-	font-family: Cooper, YouYuan,'UD Digi Kyokasho N-B', 'Malgun Gothic';
-}
-.the-taste-of-sky .turnBtn, .the-taste-of-sky .playPause{
-	filter: invert(100%) !important;
-	background-color: rgb(255, 102, 77);	/*Inverted color*/
-}
-.the-taste-of-sky .turnBtn:hover, .the-taste-of-sky .playPause:hover{
-	background-color: rgb(187, 73, 54);	/*Inverted color*/
-}
-.the-taste-of-sky .progressBar{
-	background-color: rgba(108, 196, 231, 0.50);
-	border-radius: 4px;
-}
-.the-taste-of-sky .progressBar > div{
-	background-color: rgba(255, 255, 255, 0.87);
-}
-
-.the-taste-of-sky .htBoard:lang(zh-cn){	/*Simplified Chinese*/
-	font-family: YouYuan;
-}
-.htBoard:lang(zh-mo), .htBoard:lang(zh-hk), .htBoard:lang(zh-tw){	/*Traditional Chinese*/
-	font-family: 'Microsoft JhengHei UI';
-}
-.the-taste-of-sky .htBoard:lang(ja) {	/*Japanese*/
-	font-family: 'UD Digi Kyokasho N-B';
-}
-.the-taste-of-sky .htBoard:lang(ko){	/*Korean*/
-	font-family: 'Malgun Gothic';
-}
-/*************************/

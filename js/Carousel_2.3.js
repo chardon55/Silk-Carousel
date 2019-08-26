@@ -1,5 +1,5 @@
 ﻿/*                          Carousel                        *
- *  Version: 2.3.0                                          *
+ *  Version: 2.3.1                                          *
  *  Created by: dy55                                        *
  *  Created date: Aug. 3, 2019 (v2.0)                       */
 
@@ -15,9 +15,11 @@ var learnMore = "Learn more";
 
 var internalEventReference;
 
-var carouselInfo = new Object;
+var playStatus;
+const pause = "paused";
+const play = "playing";
 
-var usedTheme;
+var carouselInfo = new Object;
 
 var lang = "en";
 //If you would like more local language code, just modify it directly.
@@ -29,7 +31,6 @@ function carouselRun(_targetPlusTheme, width, height, imageSrcs, anchorHrefs = n
 	customLearnMoreContent = new Array()) {
 
 	var tptArray = sliceTargetPlusTheme(_targetPlusTheme);
-	usedTheme = tptArray[1];
 
 	carouselInfo = {
 		carouselTarget: tptArray[0],
@@ -45,7 +46,8 @@ function carouselRun(_targetPlusTheme, width, height, imageSrcs, anchorHrefs = n
 		filterhtb: htBoardFilter,
 		htBg: htBoardBackground,
 		leaveHide: mouseLeaveHideBtn,
-		customLearnMore: customLearnMoreContent
+		customLearnMore: customLearnMoreContent,
+		usedTheme: tptArray[1]
 	}
 
 	if (width == null)
@@ -62,8 +64,10 @@ function carouselRun(_targetPlusTheme, width, height, imageSrcs, anchorHrefs = n
 
 	FormatSet();
 	localeCheck();
+	otherPreset();	//otherPreset()
 	ProgressBarSetPut();
 	Init();
+	otherOperation();	//otherOperation()
 
 	////
 }
@@ -84,8 +88,8 @@ function FormatSet() {
 		}
 	});
 
-	if (usedTheme != "")
-		$(carouselInfo.carouselTarget).addClass(usedTheme);
+	if (carouselInfo.usedTheme != "")
+		$(carouselInfo.carouselTarget).addClass(carouselInfo.usedTheme);
 	
 }
 
@@ -235,10 +239,9 @@ function TurnPrev(transitionBar = true) {
 }
 
 ///////////////////////////////////////
-//progress bar embedded v1.1
-//Created by dy55 on Aug. 4, 2019
+//Progress Bar Section
 
-const barClassName = "progressBar"; //Do not edit it.
+const barClassName = "progressBar"; //Do NOT edit it.
 
 $(() => {
 
@@ -282,33 +285,18 @@ function isEdge() {
 var btnLeftId = "CarouselButtonLeft";
 var btnRightId = "CarouselButtonRight";
 
+const buttonClassName = "button";//Do NOT edit it.
+
 function buttonsBuild() {
 	$(carouselInfo.carouselTarget).prepend("<a class='" + buttonClassName + "' id='" + btnLeftId + "'><</a><a class='" + buttonClassName + "' id='" + btnRightId + "'>></a>");
 
 }
 
-///////////////////////////////////////
-
-//Button Embedded 1.0
-//Created by: dy55
-//Aug.5 2019
-
-const buttonClassName = "button";//Do NOT edit it.
-
-const size = "42px";
-const sizeSmall = "30px";
-
-const fontSize = "25px";
-const fontSizeSmall = "12.5px";
-
-const bgColor = "#ffffff";
-const color = "#000000";
-const borderInfo = "0.6px black solid";
-
 var pauseimgUrl = "url(../images/pause.png)";
 var playimgUrl = "url(../images/start.png)";
 
 function carouselPlay() {
+	playStatus = play;
 	$(carouselInfo.carouselTarget + " .playPause").css({
 		"background-image": pauseimgUrl
 	});
@@ -323,6 +311,7 @@ function carouselPlay() {
 }
 
 function carouselPause() {
+	playStatus = pause;
 	$(carouselInfo.carouselTarget + " .playPause").css({
 		"background-image": playimgUrl
 	});
@@ -400,7 +389,7 @@ function setCustomLabel() {
 
 }
 
-//////////////////	Theme Editor v1.0	//////////////////
+//////////////////	Theme Editor	//////////////////
 
 function sliceTargetPlusTheme(str) {
 	const strTrim = str.trim();
@@ -432,6 +421,13 @@ function themeClassNameAdj(str){
 ///////////////////////////////////////////////////////
 
 function localeCheck() {
-	if ($("html").attr("lang") != lang)
+	if ($("html").attr("lang") == null || $("html").attr("lang") != lang)
 		$(carouselInfo.carouselTarget).attr("lang", lang);
 }
+
+//Additional Functions
+
+function otherPreset(){}
+function otherOperation(){}
+
+/////////////////////

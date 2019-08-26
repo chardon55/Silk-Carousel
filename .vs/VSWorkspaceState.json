@@ -3,11 +3,14 @@
     "",
     "\\css",
     "\\Demo",
-    "\\Demo\\css",
+    "\\Demo\\js",
     "\\images",
+    "\\images\\loli-pink",
+    "\\images\\loli-pink\\pause",
+    "\\images\\loli-pink\\play",
     "\\js",
     "\\locale"
   ],
-  "SelectedNode": "\\css\\Carousel_2.3.css",
+  "SelectedNode": "\\locale\\Carousel_zh-hk.js",
   "PreviewInSolutionExplorer": false
 }

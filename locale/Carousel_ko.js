@@ -1,5 +1,5 @@
-﻿//회전 목마 (버전 : 2.3) 한국어
-//Carousel v2.3 Korean
+﻿//회전 목마 (버전 : 2.3) 한국어 (한국)
+//Carousel v2.3 Korean (South Korea)
 
 lang = "ko";
 
