@@ -1,36 +1,32 @@
-# Carousel
+# Carousel (version 2.3.1)
 
 ## Intro & Features
-
-**The Carousel 2.3 is here**
 
 This is a light-weight web app to build a carousel on the website.
 
 The program is written in JavaScript and CSS.
 
-> ### Update version 2.3.0
+---
+
+> ### Update version 2.3.1
+> 
+> ***Carousel 2.3.1 is here!***
 >
-> The new carousel 2.3.0 is here!
+> Added 2 empty functions (otherPreset(), otherOperation()) for theme creation.
 >
-> The place displaying "learn more" can be custom.
->
-> Custom appearance theme is available.
->
-> A new theme scheme is available.
+> Added a variable (playStatus) for developers to get the play status.
 >
 > #### Updates for Bundles
 >
-> New demo site has been added.
+> Added a new theme scheme called "Loli Pink".
 
----
-
-*The min files are created via HookyQR's Minify v0.4.3 for VS Code.*
+*The min files were created via HookyQR's Minify v0.4.3 for VS Code.*
 
 The updates are coming. Thanks for your support!
 
 ---
 
-## Tips:
+## Tips
 
   - Make sure your HTML file has imported jQuery, because the script needs it
   - You can view the demo site to learn how to use it.
@@ -73,6 +69,20 @@ carouselRun(target_+_theme_class_name, width, height, images_array, [links_array
 ---
 
 ## Previous Updates
+
+> ### Update version 2.3.0
+>
+> The new carousel 2.3.0 is here!
+>
+> The place displaying "learn more" can be custom.
+>
+> Custom appearance theme is available.
+>
+> A new theme scheme is available.
+>
+> #### Updates for Bundles
+>
+> New demo site has been added.
 
 > ### Update version 2.2.0
 >
