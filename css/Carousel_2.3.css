@@ -78,7 +78,7 @@
 .htBoard:lang(zh-mo), .htBoard:lang(zh-hk), .htBoard:lang(zh-tw){	/*Traditional Chinese*/
 	font-family: 'Microsoft JhengHei UI';
 }
-.htBoard:lang(jp){	/*Japanese*/
+.htBoard:lang(ja){	/*Japanese*/
 	font-family: 'Yu Gothic UI';
 }
 .htBoard:lang(ko){	/*Korean*/

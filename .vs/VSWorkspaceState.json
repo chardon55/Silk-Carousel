@@ -1,7 +1,6 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css",
     "\\Demo",
     "\\Demo\\js",
     "\\images",
@@ -9,8 +8,9 @@
     "\\images\\loli-pink\\pause",
     "\\images\\loli-pink\\play",
     "\\js",
+    "\\less",
     "\\locale"
   ],
-  "SelectedNode": "\\locale\\Carousel_zh-hk.js",
+  "SelectedNode": "\\Demo\\Demo(english).html",
   "PreviewInSolutionExplorer": false
 }
