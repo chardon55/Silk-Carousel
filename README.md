@@ -1,4 +1,4 @@
-# Silk Carousel (version 2.3.1 update 2)
+# Silk Carousel (version 2.4.0)
 
 ## Intro & Features
 
@@ -8,29 +8,19 @@ The program is written in JavaScript and CSS.
 
 ---
 
-> ### Update version 2.3.1u02
+> ### Update version 2.4.0
 >
-> The program has been renamed as "Silk".
+> **Silk 2.4.0 is here.**
 >
-> The less edition style sheet is now on test.
+> The parameter list of carouselRun() has been completely changed.
 >
-> **\*NOTE\* less.js will not work properly on Chrome while the site is opened as local file.**
+> Added error report program.
 >
-> Added themes dictionaries in Chinese, Japanese and English.
+> Progress bars' filters is now available.
 
-> ### Update version 2.3.1
-> 
-> ***Carousel 2.3.1 is here!***
->
-> Added 2 empty functions (otherPreset(), otherOperation()) for theme creation.
->
-> Added a variable (playStatus) for developers to get the play status.
->
-> #### Updates for Bundles
->
-> Added a new theme scheme called "Loli Pink".
+---
 
-*The min files were created via HookyQR's Minify v0.4.3 for VS Code.*
+*The min files were created via HookyQR's Minify for VS Code v0.4.3.*
 
 The updates are coming. Thanks for your support!
 
@@ -45,34 +35,55 @@ The updates are coming. Thanks for your support!
 **Basic Use Demo**
 	
 ```JavaScript
-//               TARGET        THEME-CLASS-NAME   WIDTH   HEIGHT
-carouselRun("#bannerCarousel + the-taste-of-sky", "76%", "500px", [
-		"images/qd1.jpg",
-		"images/qd2.jpg",
-		"images/qd3.jpg",
-		"images/qd4.jpg",
-		"images/qd5.jpg",
-		"images/qd6.jpg",
-		"images/qd7.jpg"
-	],
-		[
-			"images/qd1.jpg",
-			"images/qd2.jpg",
-			"#",
-			"images/qd4.jpg",
-			"images/qd5.jpg",
-			"images/qd6.jpg",
-			"#"
-		], [
-			"<label>Brio of Qingdao</label><h2>May 4th Square</h2>",
-			"<h2>The old town in Qingdao</h2>",
-			"<h2>Old German Style House</h2>",
-			"<h2>The Christian Church in Qingdao</h2>",
-			"<h2>Olympic Sailing Center</h2>",
-			"<h2>Landing Stage</h2>",
-			"Let's find the beauty of Qingdao together!",
-		]);
+carouselRun({
+			_targetPlusTheme: "#bannerCarousel + the-taste-of-sky",
+			width: "80%",
+			height: "550px",
+			imageSrcs: [
+				"images/qd1.jpg",
+				"images/qd2.jpg",
+				"images/qd3.jpg",
+				"images/qd4.jpg",
+				"images/qd5.jpg",
+				"images/qd6.jpg",
+				"images/qd7.jpg"
+			],
+			anchorHrefs: [
+				"images/qd1.jpg",
+				"images/qd2.jpg",
+				"#",
+				"images/qd4.jpg",
+				"images/qd5.jpg",
+				"images/qd6.jpg",
+				"#"
+			],
+			htBoardTexts: [
+				"<label>Brio of Qingdao</label><h2>May 4th Square</h2>",
+				"",
+				"",
+				"<h2>Christian Church in Qingdao</h2>",
+				"<h2>Olympic Sailing Center</h2>",
+				"<h2>Landing Stage</h2>",
+				"Let's find the beauty of Qingdao together!",
+			]});
 
 //function overview
-carouselRun(target_+_theme_class_name, width, height, images_array, [links_array], [hyper-text_board_content_array],[display_outline], [display_play/pause_button], [mouse_leave_to_hide_btn], [button_s_filter], [hyper-text_board_filter], [display_hyper-text_board_s_background], [learn_more_content_array]);
+function carouselRun(info = {
+	_targetPlusTheme: new String,        //Target Name + Theme Class Name
+	width: new String,                   //Width (Default: "60%")
+	height: new String,                  //Height (Default: "450px")
+	imageSrcs: new Array,                //Images URLs Array
+	anchorHrefs: new Array,              //Links Hrefs Array
+	htBoardTexts: new Array,             //Hyper-text Board Contents for Each Slide
+	_outline: new Boolean,               //Show Outline (Default: true)
+	playToggleBtn: new Boolean,          //Show Play/Pause Button (Default: true)
+	mouseLeaveHideBtn: new Boolean,      //Hide Buttons When Mouse Leaves (Default: true)
+	buttonsFilter: new Array,            //Buttons' Filters for Each Slide
+	htBoardFilter: new Array,            //Hyper-text Board Filters for Each Slide
+	htBoardBackground: new Boolean,      //Show Background of the Hyper-text Board (Default: true)
+	customLearnMoreContent: new Array,   //Custom Content of "Learn More" Button for Each Slide
+	startFrom: new Object,               //Start from Which Slide (Default: 1)
+	progressBarFilters: new Array        //Progress Bars' Filters for Each Slide
+}){...}
+
 ```
