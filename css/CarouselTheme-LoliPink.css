@@ -2,9 +2,11 @@
 	by dy55
 	2019-8-25
 	for Carousel v2.3.1+
+	v1.0.1
 */
 
 .loli-pink{
+	background-color: rgb(255, 68, 171);
 	border-radius: 12px;
 	outline: none !important;
 	box-shadow: 0 0 8px snow;
@@ -27,6 +29,9 @@
 }
 .loli-pink:hover .htBoard{
 	opacity: 1;
+}
+.loli-pink .barSet{
+	filter: none !important;
 }
 .loli-pink .progressBar {
 	border-radius: 9999px;
