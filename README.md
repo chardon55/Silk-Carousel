@@ -1,14 +1,21 @@
-# Silk Carousel
+# 🎀 Silk Carousel 🎀
 
 ![Version_2.4.0](info/version.svg)
+[![Donate_via_PayPal](info/donate.svg)](https://paypal.me/dy55)
 
-## Intro & Features
+## ✨ Intro & Features ✨
 
-A light-weight web app to build a carousel on the website.
+A light-weight web app which builds a carousel on the website.
 
 The program is written in JavaScript and CSS.
 
----
+***
+
+*The min files were created via Minify for VS Code v0.4.3 and MinifyAll for VS Code 1.3.4*
+
+The updates are coming. Thanks for your support!
+
+**💖It will be so nice with your donate! (but you don't have to :) )💖**
 
 > ### Update version 2.4.0
 >
@@ -20,21 +27,15 @@ The program is written in JavaScript and CSS.
 >
 > Progress bars' filters is now available.
 
----
+***
 
-*The min files were created via Minify for VS Code v0.4.3 and MinifyAll for VS Code 1.3.4*
-
-The updates are coming. Thanks for your support!
-
----
-
-## Tips
+## 📚 Tips 📚
 
   - Make sure your HTML file has imported jQuery, because the script needs it
   - You can view the demo site to learn how to use it.
   - The demo code about how to use it as follow.
 
-**Basic Use Demo**
+**Basic Use Demo 💻**
 	
 ```JavaScript
 carouselRun({
