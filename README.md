@@ -1,4 +1,6 @@
-# Silk Carousel (version 2.4.0)
+# Silk Carousel
+
+![Version_2.4.0](info/version.svg)
 
 ## Intro & Features
 
@@ -20,7 +22,7 @@ The program is written in JavaScript and CSS.
 
 ---
 
-*The min files were created via HookyQR's Minify for VS Code v0.4.3.*
+*The min files were created via Minify for VS Code v0.4.3 and MinifyAll for VS Code 1.3.4*
 
 The updates are coming. Thanks for your support!
 
