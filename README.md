@@ -17,7 +17,7 @@ The program is written in JavaScript and CSS.
 
 The updates are coming. Thanks for your support!
 
-**💖It will be so nice with your donate! (but you don't have to :) )💖**
+**💖It will be so nice with your donation! (but you don't have to :) )💖**
 
 > ### Update version 2.4.0
 >
