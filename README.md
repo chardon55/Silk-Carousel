@@ -3,6 +3,8 @@
 ![Version_2.4.0](info/version.svg)
 [![Donate_via_PayPal](info/donate.svg)](https://paypal.me/dy55)
 
+**<> with 💗 by dy55**
+
 ## ✨ Intro & Features ✨
 
 A light-weight web app which builds a carousel on the website.
