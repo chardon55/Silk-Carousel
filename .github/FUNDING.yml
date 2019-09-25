@@ -1,6 +1,6 @@
 # These are supported funding model platforms
 
-github: "dy55"
+# github:
 # patreon:
 # open_collective:
 # ko_fi:
@@ -9,4 +9,4 @@ github: "dy55"
 # liberapay:
 # issuehunt:
 # otechie:
-custom: ["https://paypal.me/dy55", "https://github.com/dy55/Silk-Carousel/blob/master/.github/info/alipayQR_dy55.jpg"]
+custom: ['https://paypal.me/dy55', 'https://github.com/dy55/Silk-Carousel/blob/master/.github/info/alipayQR_dy55.jpg']
