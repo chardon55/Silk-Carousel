@@ -1,7 +1,8 @@
 # 🎀 Silk Carousel 🎀
 
-![Version_2.4.0](info/version.svg)
-[![Donate_via_PayPal](info/donate.svg)](https://paypal.me/dy55)
+![Version_2.4.0](.github/info/version.svg)
+[![Donate_PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)
+[![Donate_Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)
 
 **<> with 💗 by dy55**
 
