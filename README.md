@@ -8,7 +8,7 @@
 
 ## ✨ Features ✨
 
-A light-weight web app which builds a carousel on the website.
+A light-weight website carousel plugin.
 
 The program is written in JavaScript and CSS.
 
