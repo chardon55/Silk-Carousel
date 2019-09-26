@@ -1,14 +1,12 @@
 # 🎀 Silk Carousel 🎀
 
-![Version_2.4.0](.github/info/version.svg)
+![Version_2.4.1](.github/info/version.svg)
 
 [![Donate_PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)
 [![Donate_Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)
 [![Donate_WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
 
-**<> with 💗 by dy55**
-
-## ✨ Intro & Features ✨
+## ✨ Features ✨
 
 A light-weight web app which builds a carousel on the website.
 
@@ -16,31 +14,31 @@ The program is written in JavaScript and CSS.
 
 ***
 
-*The min files were created via Minify for VS Code v0.4.3 and MinifyAll for VS Code 1.3.4*
+*The min files were created via Minify for VS Code and MinifyAll for VS Code*
 
-The updates are coming. Thanks for your support!
+**💝 It will be so nice with your donation! (but you don't have to) 💝**
 
-**💖It will be so nice with your donation! (but you don't have to :) )💖**
+**The updates are coming. Thanks for your support! 😋**
 
-> ### Update version 2.4.0
+> ### Update version 2.4.1
 >
-> **Silk 2.4.0 is here.**
+> **Silk Carousel 2.4.1 is here.**
 >
-> The parameter list of carouselRun() has been completely changed.
+> Target name and theme name are separated in the new version.
 >
-> Added error report program.
+> Added optional play/pause status display.
 >
-> Progress bars' filters is now available.
+> Code has been optimized.
 
 ***
 
-## 📚 Tips 📚
+## 🎯 Tips 🎯
 
   - Make sure your HTML file has imported jQuery, because the script needs it
   - You can view the demo site to learn how to use it.
   - The demo code about how to use it as follow.
 
-**Basic Use Demo 💻**
+**Basic Use Demo 🔍**
 	
 ```JavaScript
 carouselRun({
@@ -77,7 +75,8 @@ carouselRun({
 
 //function overview
 function carouselRun(info = {
-	_targetPlusTheme: new String,        //Target Name + Theme Class Name
+	_target: new String,                 //Target Name (ID/Class/...)
+	theme: new String,                   //Theme Name
 	width: new String,                   //Width (Default: "60%")
 	height: new String,                  //Height (Default: "450px")
 	imageSrcs: new Array,                //Images URLs Array
@@ -91,7 +90,10 @@ function carouselRun(info = {
 	htBoardBackground: new Boolean,      //Show Background of the Hyper-text Board (Default: true)
 	customLearnMoreContent: new Array,   //Custom Content of "Learn More" Button for Each Slide
 	startFrom: new Object,               //Start from Which Slide (Default: 1)
-	progressBarFilters: new Array        //Progress Bars' Filters for Each Slide
+	progressBarFilters: new Array,       //Progress Bars' Filters for Each Slide
+	showStatus: new Boolean              //Whether show status box (Default: true)
 }){...}
 
 ```
+
+**<> with 💖 by dy55**
