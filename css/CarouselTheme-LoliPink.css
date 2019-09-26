@@ -2,7 +2,7 @@
 	by dy55
 	2019-8-25
 	for Carousel v2.3.1+
-	v1.0.1
+	v1.0.2
 */
 
 .loli-pink{
@@ -11,6 +11,9 @@
 	outline: none !important;
 	box-shadow: 0 0 8px snow;
 	border: 1.6px dashed rgb(255, 68, 171);
+}
+.loli-pink * {
+	font-family: Harrington, STHupo, HGSoeiKakupoptai;
 }
 .loli-pink .htBoard {
 	border-radius: 12px;
@@ -21,8 +24,6 @@
 	background-size: 8% !important;
 	padding-left: 6%;
 	filter: none !important;
-
-	font-family: Harrington, STHupo, HGSoeiKakupoptai;
 }
 .loli-pink .htBoard * {
 	color: rgb(241, 97, 179);
@@ -71,9 +72,9 @@
 	filter: none !important;
 }
 
-.loli-pink .htBoard:lang(zh-cn){
+.loli-pink *:lang(zh-cn){
 	font-family: STHupo;
 }
-.loli-pink .htBoard:lang(ja){
+.loli-pink *:lang(ja){
 	font-family: HGSoeiKakupoptai;
 }

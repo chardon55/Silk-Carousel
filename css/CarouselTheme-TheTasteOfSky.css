@@ -1,7 +1,7 @@
 /*	File created date: 2019-8-25
  	The Taste of Sky	Created: 2019-8-23
  	For Carousel 2.3.0+
-	v1.0.1
+	v1.0.2
 */
 .the-taste-of-sky {
 	background-color: deepskyblue;
@@ -12,13 +12,12 @@
 
 .the-taste-of-sky * {
 	filter: none !important;
+	font-family: Cooper, YouYuan, 'UD Digi Kyokasho N-B', 'Malgun Gothic';
 }
 
 .the-taste-of-sky .htBoard {
 	background: linear-gradient(rgba(141, 227, 255, 0.70), rgba(29, 162, 201, 0.70));
-	border-radius: 8px;
-
-	font-family: Cooper, YouYuan, 'UD Digi Kyokasho N-B', 'Malgun Gothic';
+	border-radius: 8px;	
 }
 
 .the-taste-of-sky .turnBtn,
@@ -47,24 +46,24 @@
 	background-color: rgba(255, 255, 255, 0.87);
 }
 
-.the-taste-of-sky .htBoard:lang(zh-cn) {
+.the-taste-of-sky *:lang(zh-cn) {
 	/*Simplified Chinese*/
 	font-family: YouYuan;
 }
 
-.htBoard:lang(zh-mo),
-.htBoard:lang(zh-hk),
-.htBoard:lang(zh-tw) {
+.the-taste-of-sky *:lang(zh-mo),
+.the-taste-of-sky *:lang(zh-hk),
+.the-taste-of-sky *:lang(zh-tw) {
 	/*Traditional Chinese*/
 	font-family: 'Microsoft JhengHei UI';
 }
 
-.the-taste-of-sky .htBoard:lang(ja) {
+.the-taste-of-sky *:lang(ja) {
 	/*Japanese*/
 	font-family: 'UD Digi Kyokasho N-B';
 }
 
-.the-taste-of-sky .htBoard:lang(ko) {
+.the-taste-of-sky *:lang(ko) {
 	/*Korean*/
 	font-family: 'Malgun Gothic';
 }
