@@ -2,9 +2,7 @@
 
 ![Version_2.4.1](.github/info/version.svg)
 
-[![Donate_PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)
-[![Donate_Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)
-[![Donate_WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
+[![Donate_PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)[![Donate_Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)[![Donate_WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
 
 ## ✨ Features ✨
 
