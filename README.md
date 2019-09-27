@@ -16,9 +16,11 @@ The program is written in JavaScript and CSS.
 
 *The min files were created via Minify for VS Code and MinifyAll for VS Code*
 
-**💝 It will be so nice with your donation! (but you don't have to) 💝**
+The updates are coming. Thanks for your support! 😋
 
-**The updates are coming. Thanks for your support! 😋**
+**The brand new carousel is under construction!**
+
+**💝 It will be so nice with your donation! (but you don't have to) 💝**
 
 > ### Update version 2.4.1
 >
