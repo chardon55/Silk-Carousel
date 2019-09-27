@@ -2,8 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\Demo",
-    "\\Demo\\js",
     "\\images",
     "\\images\\loli-pink",
     "\\images\\loli-pink\\play",
@@ -11,6 +9,6 @@
     "\\less",
     "\\locale"
   ],
-  "SelectedNode": "\\js\\CarouselTheme-loli-pink.js",
+  "SelectedNode": "\\js\\Carousel_2.4.1.js",
   "PreviewInSolutionExplorer": false
 }
