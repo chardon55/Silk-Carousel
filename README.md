@@ -41,7 +41,8 @@ The updates are coming. Thanks for your support! 😋
 	
 ```JavaScript
 carouselRun({
-			_targetPlusTheme: "#bannerCarousel + the-taste-of-sky",
+			_target: "#bannerCarousel",
+			theme: "the-taste-of-sky",
 			width: "80%",
 			height: "550px",
 			imageSrcs: [
