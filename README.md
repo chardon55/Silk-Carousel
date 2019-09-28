@@ -17,6 +17,8 @@ The updates are coming. Thanks for your support! 😋
 
 **The brand new carousel is under construction!**
 
+**We will learn from other carousel projects to make Silk better.**
+
 > ### Update version 2.4.1
 >
 > **Silk Carousel 2.4.1 is here.**
