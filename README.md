@@ -67,7 +67,7 @@ The updates are coming. Thanks for your support! 😋
 	```HTML
 	<script type="text/javascript">
 	    carouselRun({
-		        _target: "#bannerCarousel",
+	            _target: "#bannerCarousel",
 	            theme: "the-taste-of-sky",
 	            width: "80%",
 	            height: "550px",
