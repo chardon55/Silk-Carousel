@@ -31,49 +31,81 @@ The updates are coming. Thanks for your support! 😋
 
 ***
 
-## 🎯 Tips 🎯
+## 🎯 Usage 🎯
 
-  - Make sure your HTML file has imported jQuery, because the script needs it
-  - You can view the demo site to learn how to use it.
-  - The demo code about how to use it as follow.
+1. Import the files
 
-**Basic Use Demo 🔍**
+	i. Link the CSS file
+		
+	```HTML
+	<link type="text/css" rel="stylesheet" href="css/carousel_2.4.1.css" />
+	```
+	The theme CSS file should be linked behind the main CSS file.
+
+	ii. Import JQuery
+
+	```HTML
+	<script src="js/jquery.js"></script>
+	```
+
+	iii. Import the JS file
+
+	```HTML
+	<script src="js/carousel_2.4.1.js"></script>
+	```
+	The theme JS file should be imported behind the main JS file.
+
+2. Create a div
+
+	```HTML
+	<div id="bannerCarousel"></div>
+	```
+
+3. Call function
 	
-```JavaScript
-carouselRun({
-			_target: "#bannerCarousel",
-			theme: "the-taste-of-sky",
-			width: "80%",
-			height: "550px",
-			imageSrcs: [
-				"images/qd1.jpg",
-				"images/qd2.jpg",
-				"images/qd3.jpg",
-				"images/qd4.jpg",
-				"images/qd5.jpg",
-				"images/qd6.jpg",
-				"images/qd7.jpg"
-			],
-			anchorHrefs: [
-				"images/qd1.jpg",
-				"images/qd2.jpg",
-				"#",
-				"images/qd4.jpg",
-				"images/qd5.jpg",
-				"images/qd6.jpg",
-				"#"
-			],
-			htBoardTexts: [
-				"<label>Brio of Qingdao</label><h2>May 4th Square</h2>",
-				"",
-				"",
-				"<h2>Christian Church in Qingdao</h2>",
-				"<h2>Olympic Sailing Center</h2>",
-				"<h2>Landing Stage</h2>",
-				"Let's find the beauty of Qingdao together!",
-			]});
 
-//function overview
+	```HTML
+	<script type="text/javascript">
+		carouselRun({
+					_target: "#bannerCarousel",
+					theme: "the-taste-of-sky",
+					width: "80%",
+					height: "550px",
+					imageSrcs: [
+						"images/qd1.jpg",
+						"images/qd2.jpg",
+						"images/qd3.jpg",
+						"images/qd4.jpg",
+						"images/qd5.jpg",
+						"images/qd6.jpg",
+						"images/qd7.jpg"
+					],
+					anchorHrefs: [
+						"images/qd1.jpg",
+						"images/qd2.jpg",
+						"#",
+						"images/qd4.jpg",
+						"images/qd5.jpg",
+						"images/qd6.jpg",
+						"#"
+					],
+					htBoardTexts: [
+						"<label>Brio of Qingdao</label><h2>May 4th Square</h2>",
+						"",
+						"",
+						"<h2>Christian Church in Qingdao</h2>",
+						"<h2>Olympic Sailing Center</h2>",
+						"<h2>Landing Stage</h2>",
+						"Let's find the beauty of Qingdao together!",
+					]
+			});
+	</script>
+	```
+				
+### Function Information
+
+```JavaScript
+//function information
 function carouselRun(info = {
 	_target: new String,                 //Target Name (ID/Class/...)
 	theme: new String,                   //Theme Name
