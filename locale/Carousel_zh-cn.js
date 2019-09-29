@@ -1,5 +1,5 @@
-﻿//丝缎轮播（版本：2.4.1） 简体中文（中国）
-//Silk Carousel v2.4.1 Simplified Chinese (China)
+﻿//丝缎轮播（版本：2.5.0） 简体中文（中国）
+//Silk Carousel v2.5.0 Simplified Chinese (China)
 
 lang = "zh-cn";
 
@@ -8,8 +8,8 @@ noImage = "没有图片";
 
 learnMore = "了解更多";
 
-pause = "暂停";
-play = "播放";
+pause = "已暂停";
+play = "播放中";
 
 //错误信息
 cErr = "轮播发生错误：";

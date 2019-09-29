@@ -1,5 +1,5 @@
-﻿//シルク・カルーセル（バージョン：2.4.1）　日本語（日本）
-//Silk Carousel v2.4.1 Japanese (Japan)
+﻿//シルク・カルーセル（バージョン：2.5.0）　日本語（日本）
+//Silk Carousel v2.5.0 Japanese (Japan)
 
 lang = "ja";
 

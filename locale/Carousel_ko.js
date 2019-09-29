@@ -1,5 +1,5 @@
-﻿//실크 회전 목마 (버전 : 2.4.1) 한국어 (한국)
-//Silk Carousel v2.4.1 Korean (South Korea)
+﻿//실크 회전 목마 (버전 : 2.5.0) 한국어 (한국)
+//Silk Carousel v2.5.0 Korean (South Korea)
 
 lang = "ko";
 

@@ -2,9 +2,9 @@
 	by dy55
 	2019-8-25
 	for Carousel v2.3.1+
-	v1.0.2
+	v1.0.3
 */
-
+/*This theme needs bootstrap to work properly*/
 .loli-pink{
 	background-color: rgb(255, 68, 171);
 	border-radius: 12px;
@@ -36,8 +36,8 @@
 }
 .loli-pink .progressBar {
 	border-radius: 9999px;
-	background-color: rgba(255, 73, 173, 0.86);
-	border: 1.5px solid rgba(255, 51, 163, 0.86);
+	background-color: rgba(255, 73, 173, 0.86);	
+	border: 1.5px solid rgb(255, 68, 171);
 }
 .loli-pink .progressBar div{
 	border-radius: 9999px;
