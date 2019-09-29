@@ -1,7 +1,7 @@
 # 🎀 Silk Carousel 🎀
 
-![Version_2.4.1](.github/info/version.svg)
-[![Donate_PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)[![Donate_Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)[![Donate_WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
+![Version_2.5.0](.github/info/version.svg)
+![Donate](.github/info/donate.svg)[![PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)[![Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)[![WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
 
 ## ✨ Features ✨
 
@@ -19,15 +19,19 @@ The updates are coming. Thanks for your support! 😋
 
 **We are learning from other carousel projects to make Silk better.**
 
-> ### Update version 2.4.1
+> ### Update version 2.5.0
 >
-> **Silk Carousel 2.4.1 is here.**
+> **Silk Carousel 2.5.0 is here.**
 >
-> Target name and theme name are separated in the new version.
+> The algorithm of playing and pause behaviors have been optimized, which supports resuming at the paused time.
 >
-> Added optional play/pause status display.
+> Substantial amount of code has been optimized.
 >
-> Code has been optimized.
+> The stability of the program has been optimized.
+>
+> The algorithm of status box has been optimized.
+>
+> New icons for "turn back" button and "turn next" button.
 
 ***
 
@@ -38,7 +42,7 @@ The updates are coming. Thanks for your support! 😋
 	i. Link the CSS file
 		
 	```HTML
-	<link type="text/css" rel="stylesheet" href="css/carousel_2.4.1.css" />
+	<link type="text/css" rel="stylesheet" href="css/carousel_2.5.0.css" />
 	```
 	The theme CSS file should be linked behind the main CSS file.
 
@@ -51,7 +55,7 @@ The updates are coming. Thanks for your support! 😋
 	iii. Import the JS file
 
 	```HTML
-	<script src="js/carousel_2.4.1.js"></script>
+	<script src="js/carousel_2.5.0.js"></script>
 	```
 	The theme JS file should be imported behind the main JS file.
 
@@ -121,7 +125,7 @@ function carouselRun(info = {
     htBoardFilter: new Array,            //Hyper-text Board Filters for Each Slide
     htBoardBackground: new Boolean,      //Show Background of the Hyper-text Board (Default: true)
     customLearnMoreContent: new Array,   //Custom Content of "Learn More" Button for Each Slide
-    startFrom: new Object,               //Start from Which Slide (Default: 1)
+    startFrom: new Number,               //Start from Which Slide (Default: 1)
     progressBarFilters: new Array,       //Progress Bars' Filters for Each Slide
     showStatus: new Boolean              //Whether show status box (Default: true)
 }){...}
