@@ -1,6 +1,6 @@
 # 🎀 Silk Carousel 🎀
 
-![Version_2.5.0](.github/info/version.svg) ![Donate](.github/info/donate.svg)[![PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)[![Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)[![WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
+![Version_2.5.1](.github/info/version.svg) ![Donate](.github/info/donate.svg)[![PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)[![Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)[![WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
 
 ## ✨ Features ✨
 
@@ -18,19 +18,15 @@ The updates are coming. Thanks for your support! 😋
 
 **We are learning from other carousel projects to make Silk better.**
 
-> ### Update version 2.5.0
+> ### Update version 2.5.1
 >
-> **Silk Carousel 2.5.0 is here.**
+> **Silk Carousel 2.5.1 is here.**
 >
-> The algorithm of playing and pause behaviors have been optimized, which supports resuming at the paused time.
+> The code has been optimized.
 >
-> Substantial amount of code has been optimized.
+> #### Attachment Update
 >
-> The stability of the program has been optimized.
->
-> The algorithm of status box has been optimized.
->
-> New icons for "turn back" button and "turn next" button.
+> Demo sites have been optimized.
 
 ***
 
@@ -41,7 +37,7 @@ The updates are coming. Thanks for your support! 😋
 	i. Link the CSS file
 		
 	```HTML
-	<link type="text/css" rel="stylesheet" href="css/carousel_2.5.0.css" />
+	<link type="text/css" rel="stylesheet" href="css/carousel_2.5.1.css" />
 	```
 	The theme CSS file should be linked behind the main CSS file.
 
@@ -54,7 +50,7 @@ The updates are coming. Thanks for your support! 😋
 	iii. Import the JS file
 
 	```HTML
-	<script src="js/carousel_2.5.0.js"></script>
+	<script src="js/carousel_2.5.1.js"></script>
 	```
 	The theme JS file should be imported behind the main JS file.
 
