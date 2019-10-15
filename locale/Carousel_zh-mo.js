@@ -1,5 +1,5 @@
-﻿//絲緞輪播（版本：2.5.0） 繁體中文（中國澳門特別行政區）
-//Silk Carousel v2.5.0 Traditional Chinese (Macao SAR, China)
+﻿//絲緞輪播（版本：2.5.1） 繁體中文（中國澳門特別行政區）
+//Silk Carousel v2.5.1 Traditional Chinese (Macao SAR, China)
 
 lang = "zh-mo";
 

@@ -1,5 +1,5 @@
-﻿//丝缎轮播（版本：2.5.0） 简体中文（中国）
-//Silk Carousel v2.5.0 Simplified Chinese (China)
+﻿//丝缎轮播（版本：2.5.1） 简体中文（中国）
+//Silk Carousel v2.5.1 Simplified Chinese (China)
 
 lang = "zh-cn";
 
