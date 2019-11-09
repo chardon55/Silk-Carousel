@@ -1,6 +1,6 @@
 # 🎀 Silk Carousel 🎀
 
-![Version_2.5.1](.github/info/version.svg) ![Donate](.github/info/donate.svg)[![PayPal](.github/info/donatePaypal.svg)](https://paypal.me/dy55)[![Alipay](.github/info/donateAlipay.svg)](.github/info/alipayQR_dy55.jpg)[![WeChat](.github/info/donateWechat.svg)](.github/info/wechatQR_dy55.png)
+![Version_2.5.1](.github/info/version.svg)
 
 ## ✨ Features ✨
 
