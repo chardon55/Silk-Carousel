@@ -14,7 +14,7 @@ The program is written in JavaScript and CSS.
 
 The updates are coming. Thanks for your support! 😋
 
-**The brand new carousel is under construction!**
+**Silk v2.5.1 is the final version of Silk v2. Now we focus on the next major version of Silk.**
 
 **We are learning from other carousel projects to make Silk better.**
 
