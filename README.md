@@ -2,34 +2,6 @@
 
 ![Version_2.5.1](.github/info/version.svg)
 
-## ✨ Features ✨
-
-A light-weight website carousel plugin.
-
-The program is written in JavaScript and CSS.
-
-***
-
-*The min files were created via Minify for VS Code and MinifyAll for VS Code*
-
-The updates are coming. Thanks for your support! 😋
-
-**Silk v2.5.1 is the final version of Silk v2. We have focused on the next major version of Silk.**
-
-**We are learning from other carousel projects to make Silk better.**
-
-> ### Update version 2.5.1
->
-> **Silk Carousel 2.5.1 is here.**
->
-> The code has been optimized.
->
-> #### Attachment Update
->
-> Demo sites have been optimized.
-
-***
-
 ## 🎯 Usage 🎯
 
 1. Import the files
