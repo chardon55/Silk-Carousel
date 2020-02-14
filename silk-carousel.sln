@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "silk-carousel-3", "silk-carousel-3.njsproj", "{4DCDC4A7-6D0A-4058-9ADA-F97E984DEA36}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "silk-carousel", "silk-carousel.njsproj", "{7FE8EB3F-73D1-4E20-8A9D-5F963A9178E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4DCDC4A7-6D0A-4058-9ADA-F97E984DEA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4DCDC4A7-6D0A-4058-9ADA-F97E984DEA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4DCDC4A7-6D0A-4058-9ADA-F97E984DEA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4DCDC4A7-6D0A-4058-9ADA-F97E984DEA36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE8EB3F-73D1-4E20-8A9D-5F963A9178E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE8EB3F-73D1-4E20-8A9D-5F963A9178E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE8EB3F-73D1-4E20-8A9D-5F963A9178E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE8EB3F-73D1-4E20-8A9D-5F963A9178E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2A917936-1A67-43F5-9E93-E0A440D6DC4B}
+		SolutionGuid = {43B7D6F9-D97B-4A6D-B93D-77A123512895}
 	EndGlobalSection
 EndGlobal

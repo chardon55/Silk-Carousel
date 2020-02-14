@@ -1,3 +1,3 @@
-# silk-carousel-3
+# silk-carousel
 
 
