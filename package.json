@@ -1,0 +1,20 @@
+{
+  "name": "silk-carousel-3",
+  "version": "0.0.0",
+  "description": "silk-carousel-3",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.14",
+    "@types/react": "^16.9.19",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typescript": "^3.2.2"
+  }
+}
