@@ -1,5 +1,7 @@
+import { SilkCarousel } from './silk-carousel-utils';
+
 /*
- *        Silk Carousel
+ *        Silk Carousel Main
  *                        v 3.0.0
  *              <> by dy55 with ?
  *  (c) 2020 dy55

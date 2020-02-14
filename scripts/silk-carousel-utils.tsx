@@ -2,7 +2,7 @@
 import ReactDOM = require('react-dom');
 
 /*
- *        Silk Carousel
+ *        Silk Carousel Utilities
  *                        v 3.0.0
  *              <> by dy55 with ❤
  *  (c) 2020 dy55

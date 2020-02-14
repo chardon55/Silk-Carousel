@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 /*
- *        Silk Carousel
+ *        Silk Carousel Utilities
  *                        v 3.0.0
  *              <> by dy55 with ❤
  *  (c) 2020 dy55
