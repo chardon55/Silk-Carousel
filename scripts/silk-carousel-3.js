@@ -1,14 +1,14 @@
-import { SilkCarousel } from './silk-carousel-utils';
+import { SilkCarousel, $$silk } from './silk-carousel-utils';
 
 /*
- *        Silk Carousel Main
+ *        Silk Carousel Navigator
  *                        v 3.0.0
- *              <> by dy55 with ?
+ *              <> by dy55 with Love
  *  (c) 2020 dy55
  *  License under MIT
  */
 
-if ($ != undefined) {
+if ($ != undefined && jQuery != undefined) {
     /**
      *  JQuery plugin of Silk Carousel
      */
@@ -19,8 +19,8 @@ if ($ != undefined) {
 }
 
 /**
- * Call Silk Carousel (Legacy Usage)
+ * Silk Carousel Legacy Function
  */
-function carouselRun({ } = {}) {
+export function carouselRun({ } = {}) {
 
 }

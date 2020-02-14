@@ -4,27 +4,18 @@ import ReactDOM = require('react-dom');
 /*
  *        Silk Carousel Utilities
  *                        v 3.0.0
- *              <> by dy55 with ❤
+ *              <> by dy55 with Love
  *  (c) 2020 dy55
  *  License under MIT
  */
 
-var $$silk = {
+export const $$silk = {
     classNames: {
         progressBar: {
             outer: "silk-progress-bar",
             inner: "silk-progress-bar-inner"
         }
     }
-}
-
-
-
-/** 
- *  Legacy Usage
- */
-function carouselRun() {
-    
 }
 
 export class SilkCarousel extends React.Component {

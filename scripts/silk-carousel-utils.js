@@ -17,11 +17,11 @@ var React = require("react");
 /*
  *        Silk Carousel Utilities
  *                        v 3.0.0
- *              <> by dy55 with ❤
+ *              <> by dy55 with Love
  *  (c) 2020 dy55
  *  License under MIT
  */
-var $$silk = {
+exports.$$silk = {
     classNames: {
         progressBar: {
             outer: "silk-progress-bar",
@@ -29,11 +29,6 @@ var $$silk = {
         }
     }
 };
-/**
- *  Legacy Usage
- */
-function carouselRun() {
-}
 var SilkCarousel = /** @class */ (function (_super) {
     __extends(SilkCarousel, _super);
     function SilkCarousel() {
@@ -49,7 +44,7 @@ var ProgressBar = /** @class */ (function (_super) {
     }
     ProgressBar.prototype.render = function () {
         var _a = this.props, value = _a.value, min = _a.min, max = _a.max;
-        return (React.createElement("div", { className: $$silk.classNames.progressBar.outer },
+        return (React.createElement("div", { className: exports.$$silk.classNames.progressBar.outer },
             React.createElement("div", { style: {
                     width: (value - min) / (max - min) * 100 + "%"
                 } })));
