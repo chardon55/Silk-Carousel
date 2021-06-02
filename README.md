@@ -9,14 +9,6 @@ The program is written in JavaScript and CSS.
 
 ***
 
-*The min files were created via Minify for VS Code and MinifyAll for VS Code*
-
-The updates are coming. Thanks for your support! 😋
-
-**The brand new carousel is under construction!**
-
-**We are learning from other carousel projects to make Silk better.**
-
 > ### Update version 2.5.1
 >
 > **Silk Carousel 2.5.1 is here.**
